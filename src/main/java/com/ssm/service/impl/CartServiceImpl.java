@@ -5,12 +5,9 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.TypeReference;
 import com.ssm.dao.CartMapper;
 import com.ssm.dao.UserMapper;
 import com.ssm.po.GoodsCart;
-import com.ssm.po.UserP;
 import com.ssm.service.inter.CartServiceInter;
 
 public class CartServiceImpl implements CartServiceInter{

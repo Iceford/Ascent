@@ -1,7 +1,5 @@
 package com.ssm.service.inter;
 
-import com.ssm.po.GoodsOrders;
-
 public interface OrdersServiceInter {
 	
 	String getCounts(Integer num) throws Exception;

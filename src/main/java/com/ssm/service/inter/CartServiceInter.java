@@ -1,6 +1,13 @@
+/*
+ * @Description: 
+ * @FilePath: \src\main\java\com\ssm\service\inter\CartServiceInter.java
+ * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Date: 2023-06-05 11:32:03
+ * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditTime: 2023-06-05 15:56:48
+ * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+ */
 package com.ssm.service.inter;
-
-import java.util.List;
 
 import com.ssm.po.GoodsCart;
 
