@@ -30,6 +30,7 @@
         WHERE id = #{id}
     </update>
 
+
     <!--对应getUsersId()方法,用于根据用户ID查询用户-->
     <select id="getUsersId" parameterType="java.lang.Integer" resultType="UserP">
         select *
@@ -44,6 +45,7 @@
         SET PASSWORD=#{password}
         WHERE id = #{id}
     </update>
+
 
     <!--对应addPlUsers()方法,用于添加用户信息-->
     <insert id="addPlUsers" parameterType="UserP">
@@ -88,6 +90,7 @@
             <result column="goods_name" property="goods_name"/>
         </collection>
     </resultMap>
+
 
     <!--对应AdminOneToManyOrdes()方法，用于用于管理员获取用户及其订单信息-->
     <select id="AdminOneToManyOrdes" resultMap="OnetoManyOrde">

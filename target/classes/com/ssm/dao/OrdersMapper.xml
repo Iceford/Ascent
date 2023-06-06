@@ -19,6 +19,7 @@
         where order_userid = #{num}
     </select>
 
+
     <!--对应FenyeList()方法,用于分页查询某个用户的订单列表
     SQL语句的具体内容：从名为"orders"的表中查询所有符合条件"order_userid = #{order_userid}"的记录,
     限制返回结果的起始位置为"#{page}"，每页返回3条记录-->
@@ -29,6 +30,7 @@
             , 3
     </select>
 
+
     <!--对应deleteByidOrders()方法,用于根据订单ID删除某个订单-->
     <delete id="deleteByidOrders" parameterType="java.lang.Integer">
         DELETE
@@ -36,12 +38,14 @@
         WHERE id = #{id}
     </delete>
 
+
     <!--对应PayOrders()方法,用于更新某个订单的支付状态-->
     <update id="PayOrders" parameterType="java.lang.Integer">
         UPDATE orders
         SET order_succ= 1
         WHERE id = #{id}
     </update>
+
 
     <!--对应addOrdersMappers()方法,用于向订单表中添加一条新的订单记录-->
     <insert id="addOrdersMappers" parameterType="GoodsOrders">
@@ -85,6 +89,7 @@
         from orders
         where order_state = #{status}
     </select>
+
 
     <!--对应adminFahuoOrders()方法,用于将某个订单的状态更新为"查物流"，表示已发货-->
     <update id="adminFahuoOrders" parameterType="java.lang.Integer">

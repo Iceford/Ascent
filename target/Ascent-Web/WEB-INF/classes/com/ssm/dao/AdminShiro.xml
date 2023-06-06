@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * @Description: 将Java接口AdminShiro中定义的方法与SQL语句进行映射,实现数据库访问功能
+ * @FilePath: \src\main\java\com\ssm\dao\AdminShiro.xml
+ * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Date: 2023-06-05 11:32:03
+ * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditTime: 2023-06-05 22:38:19
+ * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+-->
+
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ssm.dao.AdminShiro">
+<mapper namespace="com.ssm.dao.AdminShiro"> <!--指定命名空间,用于区分不同的Mapper文件-->
 
-    <select id="ShiroGets" resultType="AdminShiroS"> SELECT * FROM admin_shiro </select>
+    <!--对应ShiroGets()方法,查询所有权限信息,并将结果映射为AdminShiroS类型的List集合-->
+    <select id="ShiroGets" resultType="AdminShiroS"> SELECT *
+                                                     FROM admin_shiro </select>
 
-    <update id="AdminUpdateShiro" parameterType="java.lang.Integer"> update admin_users set
-        admin_shiro = #{shiroId} where id = #{userId} </update>
+
+    <!--对应AdminUpdateShiro()方法,表示更新管理员权限信息
+    该SQL语句使用了占位符#{shiroId}和#{userId},分别对应方法中的@Param("shiroId")和@Param("userId")注解，用于接收方法传入的参数
+    -->
+    <update id="AdminUpdateShiro" parameterType="java.lang.Integer"> update admin_users
+                                                                     set admin_shiro = #{shiroId}
+                                                                     where id = #{userId} </update>
 </mapper>

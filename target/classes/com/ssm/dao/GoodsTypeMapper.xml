@@ -8,6 +8,7 @@
 * @LastEditTime: 2023-06-06 15:13:05
 * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved.
 -->
+
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssm.dao.GoodsTypeMapper">    <!--指定命名空间,用于区分不同的Mapper文件-->
 
@@ -37,20 +38,24 @@
                                                             LEFT JOIN shop_goods g ON t.`id` =
                                                                                       g.`goods_type` </select>
 
+
     <!--对应admin_del_type()方法,通过传入的参数id确定要删除的商品类型信息-->
     <delete id="admin_del_type" parameterType="java.lang.Integer"> DELETE
                                                                    FROM shop_type
                                                                    WHERE id =
                                                                          #{id} </delete>
 
+
     <!--对应AdminaddType()方法,用于向数据库中添加商品类型信息-->
     <insert id="AdminaddType" parameterType="GoodsType"> INSERT INTO shop_type (type_name, date)
                                                          VALUES (#{type_name}, #{date}) </insert>
+
 
     <!--对应AdminGetIdType()方法,根据商品类型id查询商品类型信息,并将查询结果集射到一个GoodsType对象中,方便后续的数据处理-->
     <select id="AdminGetIdType" parameterType="java.lang.Integer" resultType="GoodsType"> select *
                                                                                           from shop_type
                                                                                           where id = #{id} </select>
+
 
     <!--对应AdminUpdateType()方法,用于更新商品类型信息-->
     <update id="AdminUpdateType" parameterType="GoodsType"> UPDATE shop_type

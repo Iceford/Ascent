@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* @Description: 将Java接口GoodsMapper中定义的方法与SQL语句进行映射,实现数据库访问功能
+* @FilePath: \src\main\java\com\ssm\dao\GoodsMapper.xml
+* @Author: hhrwvyy5654v huang_rongquan@outlook.com
+* @Date: 2023-06-05 11:32:03
+* @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+* @LastEditTime: 2023-06-05 23:14:39
+* Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved.
+-->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.GoodsMapper">  <!--指定命名空间,用于区分不同的Mapper文件-->
+
+    <!--对应getIdGoods()方法,表示查询数据库中指定id的商品信息-->
+    <select id="getIdGoods" parameterType="java.lang.Integer" resultType="Goods"> select *
+                                                                                  from shop_goods
+                                                                                  where id = #{id} </select>
+
+
+    <!--对应roundGoods()方法,表示随机获取shop_goods表中的两条记录。
+    具体实现方式:先通过子查询获取表中最大的id值，然后通过RAND()函数生成一个0到1之间的随机数，
+    再将这个随机数乘以最大id值并向下取整，得到一个随机的id值。
+    最后，查询id大于等于这个随机id值的两条记录，并按照id升序排序，返回结果-->
+    <select id="roundGoods" resultType="Goods"> SELECT *
+                                                FROM shop_goods
+                                                WHERE id >= (SELECT FLOOR(RAND() * (SELECT MAX(id) FROM shop_goods)))
+                                                ORDER BY id LIMIT 0, 2 </select>
+
+
+    <!--对应getTypeIdList()方法,用于查询数据库中指定商品类型id的商品信息。
+    SQL语句的作用是查询shop_type表和shop_goods表中，商品类型id等于传入参数id的记录，并返回结果-->
+    <select id="getTypeIdList" parameterType="java.lang.Integer" resultType="GoodsList"> SELECT shop_type.type_name,
+                                                                                                shop_goods.*
+                                                                                         FROM shop_type,
+                                                                                              shop_goods
+                                                                                         WHERE shop_type.`id` =
+                                                                                               shop_goods.`goods_type`
+                                                                                           AND shop_type.`id` = #{id} </select>
+
+
+    <!--对应searchByName()方法,用于根据商品名称模糊查询商品信息。
+    SQL语句的作用是查询shop_goods表中商品名称包含传入参数value的记录，并返回结果-->
+    <select id="searchByName" parameterType="String" resultType="Goods"> SELECT *
+                                                                         FROM shop_goods
+                                                                         WHERE goods_name LIKE '%${value}%' </select>
+
+
+    <!--<resultMap>标签，用于将查询结果映射到com.ssm.po包下的GoodsVo类-->
+    <resultMap type="com.ssm.po.GoodsVo" id="ManyOneResultMap">
+        <!--<id>和<result>标签分别表示将查询结果的列映射到GoodsVo类的对应属性上-->
+        <id column="id" property="id"/>
+        <result column="goods_name" property="goods_name"/>
+        <result column="goods_unit" property="goods_unit"/>
+        <result column="goods_stock" property="goods_stock"/>
+        <result column="goods_price" property="goods_price"/>
+        <result column="goods_type" property="goods_type"/>
+        <!--<association>标签表示将查询结果中的goods_type列映射到GoodsVo类中的goodsType属性上，
+            并且将goodsType属性映射到一个名为GoodsType的Java类中-->
+        <association property="goodsType" javaType="com.ssm.po.GoodsType">
+        <!--<id>标签表示将查询结果中的tid列映射到GoodsType类中的id属性上,
+            <result>标签表示将查询结果中的type_name列映射到GoodsType类中的type_name属性上-->
+            <id column="tid" property="id"/>
+            <result column="type_name" property="type_name"/>
+        </association>
+    </resultMap>
+
+
+    <!--对应AdminManyToOne()方法,用于查询商品信息和商品类型信息。
+    SQL语句的作用是查询shop_goods表和shop_type表中的记录，并将它们联合起来-->
+    <select id="AdminManyToOne" resultMap="ManyOneResultMap" parameterType="java.lang.Integer">
+        (SELECT g.*, t.`id` tid, t.`type_name`
+         FROM shop_goods g
+                  LEFT JOIN shop_type t ON g.`goods_type`
+             = t.`id`)
+        limit
+        #{num}
+        ,
+        8 </select>
+
+
+    <!--对应Admincounts()方法,用于查询shop_goods表中的记录总数-->
+    <select id="Admincounts" resultType="int"> select count(*)
+                                               from shop_goods </select>
+
+
+    <!--对应AdminDelGoods()方法,用于删除shop_goods表中的一条记录-->
+    <delete id="AdminDelGoods" parameterType="java.lang.Integer"> DELETE
+                                                                  FROM shop_goods
+                                                                  WHERE id =
+                                                                        #{id} </delete>
+
+
+    <!--对应AdminDels()方法,用于删除shop_goods表中多条记录。
+    <foreach>标签用于遍历传入的id，collection属性为"array"，表示传入的参数是一个数组，
+    item属性为"id"，表示遍历时将数组中的每个元素赋值给id变量，
+    open属性为"("，表示生成的SQL语句中id的左括号，
+    separator属性为","表示生成的SQL语句中id之间的分隔符，
+    close属性为")"，表示生成的SQL语句中id的右括号-->
+    <delete id="AdminDels">DELETE FROM shop_goods WHERE id IN
+        <foreach collection="array" item="id"
+                 open="(" separator=","
+                 close=")">#{id}
+        </foreach>
+    </delete>
+
+
+    <!--对应adminUpdatGoods()方法,用于更新shop_goods表中的一条记录。
+    SQL语句的作用是更新shop_goods表中id等于传入参数Goods对象中的id属性值的记录-->
+    <update id="adminUpdatGoods" parameterType="Goods"> UPDATE shop_goods
+                                                        SET goods_name    =
+                                                                #{goods_name},
+                                                            goods_unit    = #{goods_unit},
+                                                            goods_stock   = #{goods_stock},
+                                                            goods_price   =
+                                                                #{goods_price},
+                                                            goods_present = #{goods_present}
+                                                        WHERE id = #{id} </update>
+
+
+    <!--对应adminAddGoods()方法,用于向shop_goods表中插入一条记录。
+    SQL语句的作用是向shop_goods表中插入一条记录,
+    插入的字段包括goods_name、goods_unit、_stock、goods_price、goods_present、goods_type、goods_img,
+    对应的值分别为传入参数Goods对象中的对应属性值-->
+    <insert id="adminAddGoods" parameterType="Goods"> INSERT INTO shop_goods (`goods_name`,
+                                                                              `goods_unit`, `goods_stock`,
+                                                                              `goods_price`, `goods_present`,
+                                                                              `goods_type`, `goods_img`)
+                                                      VALUES (#{goods_name}, #{goods_unit}, #{goods_stock},
+                                                              #{goods_price}, #{goods_present}, #{goods_type},
+                                                              #{goods_img});
+    </insert>
+
+
+    <!--对应adminUpdateByType()方法,用于更新shop_goods表中的一条记录。
+    SQL语句的作用是更新shop_goods表中id等于传入参数Goods对象中的id属性值的记录的goods_type字段为传入参数Goods对象中的goods_type属性值-->
+    <update id="adminUpdateByType" parameterType="Goods"> UPDATE shop_goods
+                                                          SET goods_type=#{goods_type}
+                                                          WHERE id = #{id} </update>
+</mapper>
