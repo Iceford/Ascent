@@ -1,34 +1,36 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ssm.dao.ReceAddressMapper">
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* @Description: 将Java接口ReceAddressMapper中定义的方法与SQL语句进行映射,实现数据库访问功能
+* @FilePath: \src\main\java\com\ssm\dao\ReceAddressMapper.xml
+* @Author: hhrwvyy5654v huang_rongquan@outlook.com
+* @Date: 2023-06-05 11:32:03
+* @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+* @LastEditTime: 2023-06-06 16:28:20
+* Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved.
+-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.ReceAddressMapper">  <!--指定命名空间,用于区分不同的Mapper文件-->
 
-<select id="getAddress" parameterType="java.lang.Integer" resultType="ReceAddress">
+    <!--对应getAddress()方法,用于查询某个用户的所有收货地址-->
+    <select id="getAddress" parameterType="java.lang.Integer" resultType="ReceAddress"> select *
+        from rece_address where user_id = #{id} </select>
 
-select * from rece_address where user_id = #{id}
-</select>
 
-<update id="updateAddress" parameterType="ReceAddress">
-	update rece_address
-	<set>
-		<if test="addres.recename != null and addres.recename != ''">
-			recename = #{addres.recename},
-		</if>
-		<if test="addres.address != null and addres.address != ''">
-			address = #{addres.address},
-		</if>
+    <!--对应updateAddress()方法,用于更新收货地址信息。
+    使用了if标签来判断传入的值是否为空，如果不为空则更新对应字段-->
+    <update id="updateAddress" parameterType="ReceAddress"> update rece_address <set>
+            <if test="addres.recename != null and addres.recename != ''"> recename =
+        #{addres.recename}, </if>
+            <if test="addres.address != null and addres.address != ''"> address
+        = #{addres.address}, </if>
 
-		<if test="addres.zipcode != null and addres.zipcode != ''">
-			zipcode = #{addres.zipcode},
-		</if>
-		<if test="addres.iphone != null and addres.iphone != ''">
-			iphone = #{addres.iphone},
-		</if>
-	</set>
-	where id = #{addres.id}
-</update>
+            <if test="addres.zipcode != null and addres.zipcode != ''">
+        zipcode = #{addres.zipcode}, </if>
+            <if test="addres.iphone != null and addres.iphone != ''">
+        iphone = #{addres.iphone}, </if>
+        </set> where id = #{addres.id} </update>
 
-<insert id="addAddress" parameterType="java.lang.Integer">
-
-INSERT INTO rece_address (user_id) VALUES (#{userId})
-</insert>
+    <!--对应addAddress()方法,用于在注册成功后将该地址的用户外键加入到数据库中-->
+    <insert id="addAddress" parameterType="java.lang.Integer"> INSERT INTO rece_address (user_id)
+        VALUES (#{userId}) </insert>
 </mapper>

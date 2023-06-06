@@ -1,78 +1,44 @@
+/*
+ * @Description: 定义了一个Java接口UserMapper,用于访问数据库中的用户信息的方法
+ * @FilePath: \src\main\java\com\ssm\dao\UserMapper.java
+ * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Date: 2023-06-05 11:32:03
+ * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditTime: 2023-06-06 16:34:19
+ * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved.
+ */
 package com.ssm.dao;
-
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
 
 import com.ssm.po.UserP;
 import com.ssm.po.UserPVo;
+import org.apache.ibatis.annotations.Param;
 
-/**
- * 普通用户接口
- * @author snykt
- *
- */
+import java.util.List;
+
 public interface UserMapper {
-	/**
-	 * 用户登录dao接口
-	 * @param users
-	 * @param password
-	 * @return
-	 * @throws Exception
-	 */
-	UserP loginUsers(@Param("users") String users,@Param("password") String password) throws Exception;
-	
-	/**
-	 *用户信息修改dao
-	 * @param userP
-	 * @return
-	 * @throws Exception
-	 */
-	int updateUsers(UserP userP) throws Exception;
-	
-	/**
-	 * 查询单个用户
-	 * @param id
-	 * @return
-	 * @throws Exception
-	 */
-	UserP getUsersId(Integer id) throws Exception;
-	/**
-	 * 修该密码
-	 * @param userP
-	 * @return
-	 * @throws Exception
-	 */
-	int updatePwds(UserP userP) throws Exception;
-	
-	
-	/***
-	 * 管理员查询所有用户
-	 * @return
-	 * @throws Exception
-	 */
-	List<UserP> AdminGetUser() throws Exception;
-	
-	/**
-	 * 管理员删除会员账号
-	 * @param id
-	 * @return
-	 * @throws Exception
-	 */
-	int AdminDelsUsers(Integer id) throws Exception;
-	/**
-	 * 管理员查询用户旗下订单，一对多方式查询
-	 * @return
-	 * @throws Exception
-	 */
-	List<UserPVo> AdminOneToManyOrdes() throws Exception;
-	
-	/**
-	 * 普通用户注册
-	 * @param userP
-	 * @return
-	 * @throws Exception
-	 */
-	int addPlUsers(UserP userP) throws Exception;
+
+    // 用于用户登录，传入用户名和密码，返回一个UserP对象表示登录用户的信息
+    UserP loginUsers(@Param("users") String users, @Param("password") String password) throws Exception;
+
+    // 用于更新用户信息，传入一个UserP对象，返回一个整数值表示更新结果
+    int updateUsers(UserP userP) throws Exception;
+
+    // 用于根据用户ID查询用户，返回一个UserP对象
+    UserP getUsersId(Integer id) throws Exception;
+
+    // 用于更新用户密码，传入一个UserP对象，返回一个整数值表示更新结果
+    int updatePwds(UserP userP) throws Exception;
+
+    // 用于管理员获取所有用户信息，返回一个UserP列表
+    List<UserP> AdminGetUser() throws Exception;
+
+    // 用于管理员删除用户信息，入一个用户ID，返回一个整数值表示删除结果
+    int AdminDelsUsers(Integer id) throws Exception;
+
+    // 用于管理员获取用户及其订单信息，返回一个UserPVo列表
+    List<UserPVo> AdminOneToManyOrdes() throws Exception;
+
+    // 用于添加用户信息，传入一个UserP对象，返回一个整数值表示插入结果
+    int addPlUsers(UserP userP) throws Exception;
 
 }
