@@ -52,7 +52,7 @@ $(function () {
 	function check_pwd() {
 		var len = $('#pwd').val().length;
 		if (len < 5 || len > 10) {
-			$('#pwd').next().html('密码最少5位，最长10位')
+			$('#pwd').next().html('密码最少5位,最长10位')
 			$('#pwd').next().show();
 			error_password = true;
 		}

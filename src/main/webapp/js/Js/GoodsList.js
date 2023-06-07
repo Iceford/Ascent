@@ -9,7 +9,7 @@ $(function () {
 		dataType: "json",
 		success: function (m) {
 			counts = m.count
-			pages_();//防止每次刷新时，值不能及时赋值进去
+			pages_();//防止每次刷新时,值不能及时赋值进去
 
 		}
 	});
@@ -60,8 +60,8 @@ $(function () {
 			var laypage = layui.laypage;
 			//执行一个laypage实例
 			laypage.render({
-				elem: 'page' //注意，这里的 test1 是 ID，不用加 # 号
-				, count: counts //数据总数，从服务端得到
+				elem: 'page' //注意,这里的 test1 是 ID,不用加 # 号
+				, count: counts //数据总数,从服务端得到
 				, limit: 8
 				, groups: 3
 				, jump: function (obj, first) {
@@ -83,7 +83,7 @@ $(function () {
 			var ids = $(this).attr("rel");
 			layer.open({
 				icon: 3,
-				content: "确认删除 ID 为：" + $(this).attr("rel") + " 的信息吗？",
+				content: "确认删除 ID 为:" + $(this).attr("rel") + " 的信息吗？",
 				title: "确认删除",
 				btn: ['确定', '取消'],
 				yes: function (index, layero) {
@@ -98,7 +98,7 @@ $(function () {
 						success: function (m) {
 							console.log(m)
 							if (m.state == -1) {
-								layer.msg("您的权限不足，无法删除", {
+								layer.msg("您的权限不足,无法删除", {
 									icon: 5, time: 3000
 								});
 							} else if (m.state == 1) {
@@ -166,7 +166,7 @@ $(function () {
 						success: function (m) {
 
 							if (m.state == -1) {
-								layer.msg("您的权限不足，无法删除", {
+								layer.msg("您的权限不足,无法删除", {
 									icon: 5, time: 3000
 								})
 							} else if (m.state == 1) {

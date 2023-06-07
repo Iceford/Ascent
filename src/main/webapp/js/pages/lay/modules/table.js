@@ -551,7 +551,7 @@ layui.define(["laytpl", "laypage", "layer", "form", "util"], function (e) {
                                     ? (i.renderForm(),
                                         i.errorView(
                                             t[n.msgName] ||
-                                            '返回的数据不符合规范，正确的成功状态码应为："' +
+                                            '返回的数据不符合规范,正确的成功状态码应为:"' +
                                             n.statusName +
                                             '": ' +
                                             n.statusCode
@@ -563,7 +563,7 @@ layui.define(["laytpl", "laypage", "layer", "form", "util"], function (e) {
                                 "function" == typeof a.done && a.done(t, e, t[n.countName]);
                         },
                         error: function (e, t) {
-                            i.errorView("数据接口请求异常：" + t),
+                            i.errorView("数据接口请求异常:" + t),
                                 i.renderForm(),
                                 i.setColsWidth();
                         },
@@ -1049,7 +1049,7 @@ layui.define(["laytpl", "laypage", "layer", "form", "util"], function (e) {
                     case "LAYTABLE_EXPORT":
                         r.ie
                             ? l.tips(
-                                "导出功能不支持 IE，请用 Chrome 等高级浏览器导出",
+                                "导出功能不支持 IE,请用 Chrome 等高级浏览器导出",
                                 this,
                                 { tips: 3 }
                             )

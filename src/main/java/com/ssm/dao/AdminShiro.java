@@ -19,7 +19,7 @@ public interface AdminShiro {
     // 查询所有权限,返回一个AdminShiroS类型的List集合
     List<AdminShiroS> ShiroGets() throws Exception;
 
-    // 更新管理员权限,接收两个参数shiroId和userId，分别表示权限ID和用户ID，返回一个int类型的值
+    // 更新管理员权限,接收两个参数shiroId和userId,分别表示权限ID和用户ID,返回一个int类型的值
     int AdminUpdateShiro(@Param("shiroId") Integer shiroId, @Param("userId") Integer userId) throws Exception;
 
 }

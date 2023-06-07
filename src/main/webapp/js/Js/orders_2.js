@@ -50,7 +50,7 @@ $(function () {
 				},
 				dataType: "json",
 				success: function (m) {
-					layer.alert('创建该订单用户为：' + m["users"], { icon: 6 });
+					layer.alert('创建该订单用户为:' + m["users"], { icon: 6 });
 				}
 
 			})
@@ -79,7 +79,7 @@ $(function () {
 						success: function (m) {
 							console.log(m)
 							if (m.state == -1) {
-								layer.msg("您的权限不足，无法删除", {
+								layer.msg("您的权限不足,无法删除", {
 									icon: 5, time: 3000
 								});
 							} else if (m.state == 1) {

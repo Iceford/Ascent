@@ -22,7 +22,7 @@ layui.define(function (e) {
                     .replace(/"/g, "&quot;");
             },
             error: function (e, r) {
-                var c = "Laytpl Error：";
+                var c = "Laytpl Error:";
                 return (
                     "object" == typeof console && console.error(c + e + "\n" + (r || "")),
                     c + e

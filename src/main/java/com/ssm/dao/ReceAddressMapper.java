@@ -14,13 +14,13 @@ import org.apache.ibatis.annotations.Param;
 
 public interface ReceAddressMapper {
 
-    // 根据收货地址ID查询收货地址，返回一个ReceAddress对象
+    // 根据收货地址ID查询收货地址,返回一个ReceAddress对象
     ReceAddress getAddress(Integer id) throws Exception;
 
-    // 更新收货地址信息，传入一个ReceAddress对象，返回一个整数值表示更新结果
+    // 更新收货地址信息,传入一个ReceAddress对象,返回一个整数值表示更新结果
     int updateAddress(@Param("addres") ReceAddress address) throws Exception;
 
-    // 在注册成功后将该地址的用户外键加入到数据库中，传入一个用户ID，返回一个整数值表示插入结果
+    // 在注册成功后将该地址的用户外键加入到数据库中,传入一个用户ID,返回一个整数值表示插入结果
     int addAddress(Integer userId) throws Exception;
 
 }

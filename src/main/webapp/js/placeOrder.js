@@ -3,7 +3,7 @@ $(function () {
 	var cc = 0;
 	var pays = [];
 
-	function ordersList_() {//将订单拼接，然后放入数组中，最后用来一起提交
+	function ordersList_() {//将订单拼接,然后放入数组中,最后用来一起提交
 		for (var i = 0; i < $('.uls').length; i++) {
 			var $aa = $('.uls').eq(i);
 			var dan = {
@@ -76,7 +76,7 @@ $(function () {
 			dataType: "json",
 			success: function (m) {
 				if (m.state > 0) {
-					alert("下单成功，请在订单中查看信息");
+					alert("下单成功,请在订单中查看信息");
 					location.href = 'index.html';
 				} else {
 					alert("下单失败!");

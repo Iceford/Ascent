@@ -45,7 +45,7 @@ $(function () {
 			var ids = $(this).attr("rel");
 			layer.open({
 				icon: 3,
-				content: "确认删除 ID 为：" + $(this).attr("rel") + " 的信息吗？",
+				content: "确认删除 ID 为:" + $(this).attr("rel") + " 的信息吗？",
 				title: "确认删除",
 				btn: ['确定', '取消'],
 				yes: function (index, layero) {

@@ -1,5 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>艾斯医药商城-首页</title>
@@ -10,6 +12,7 @@
 	<script type="text/javascript" src="../js/slide.js"></script>
 	<script type="text/javascript" src="../js/jquery.cookie.js"></script>
 </head>
+
 <body>
 	<div class="header_con">
 		<div class="header">
@@ -31,7 +34,7 @@
 					<a href="/Shop-SSM/loginOut.do">退出</a>
 				</div>
 			</div>
-		</div>		
+		</div>
 	</div>
 
 	<div class="search_bar clearfix">
@@ -74,79 +77,80 @@
 		</div>
 	</div>
 
-<div id="indexs"></div>
+	<div id="indexs"></div>
 
-<script type="text/javascript">
-var str = "";
+	<script type="text/javascript">
+		var str = "";
 		$.ajax({
-			 url : "/Shop-SSM/getGoods.do",
-	         type : "get",
-	         dataType: "json",
-	         success : function (m) {
-	        	 console.log(m)
-	        	Getlists(m)
-	        	$('#indexs').append(str)
-	         }
+			url: "/Shop-SSM/getGoods.do",
+			type: "get",
+			dataType: "json",
+			success: function (m) {
+				console.log(m)
+				Getlists(m)
+				$('#indexs').append(str)
+			}
 		});
 
 		function Getlists(arry) {
 			var num = 1;
 			var sum = 0;
-			for(var i in arry){
+			for (var i in arry) {
 				sum++;
-				if(sum>6){
+				if (sum > 6) {
 					break;
 				}
-				str+="<div class='list_model'>"
-				str+="<div class='list_title clearfix'>"
-				str+="<h3 class='fl' id='model0"+num+"'>"+arry[i]["type_name"]+"</h3>"
-				str+="<div class='subtitle fl'>"
-				str+="<span>|</span>"
-				str+="<a href='detail.html?id="+arry[i]["lists"][0]["id"]+"'>"+arry[i]["lists"][0]["goods_name"]+"</a>"
-				str+="<a href='detail.html?id="+arry[i]["lists"][1]["id"]+"'>"+arry[i]["lists"][1]["goods_name"]+"</a>"
-				str+="<a href='detail.html?id="+arry[i]["lists"][2]["id"]+"'>"+arry[i]["lists"][2]["goods_name"]+"</a>"
-				str+="</div>"
-				str+="<a href='list.html?id="+arry[i]["id"]+"' class='goods_more fr' id='fruit_more'>查看更多 ></a>"
-				str+="</div>"
-				str+="<div class='goods_con clearfix'>"
-			    str+="<div class='goods_banner fl'><img src='../images/banner0"+(num++)+".jpg'></div>"
-			    str+="<ul class='goods_list fl'>"
-				for(var j=0;j<4;j++){
-					str+="<li>"
-					str+="<h4><a href='detail.html?id="+arry[i]["lists"][j]["id"]+"'>"+arry[i]["lists"][j]["goods_name"]+"</a></h4>"
-					str+="<a href='detail.html?id="+arry[i]["lists"][j]["id"]+"'><img src='../images/"+arry[i]["lists"][j]["goods_img"]+"'></a>"
-					str+="<div class='prize'>¥ "+arry[i]["lists"][j]["goods_price"]+"</div>"
-					str+="</li>"
-					
+				str += "<div class='list_model'>"
+				str += "<div class='list_title clearfix'>"
+				str += "<h3 class='fl' id='model0" + num + "'>" + arry[i]["type_name"] + "</h3>"
+				str += "<div class='subtitle fl'>"
+				str += "<span>|</span>"
+				str += "<a href='detail.html?id=" + arry[i]["lists"][0]["id"] + "'>" + arry[i]["lists"][0]["goods_name"] + "</a>"
+				str += "<a href='detail.html?id=" + arry[i]["lists"][1]["id"] + "'>" + arry[i]["lists"][1]["goods_name"] + "</a>"
+				str += "<a href='detail.html?id=" + arry[i]["lists"][2]["id"] + "'>" + arry[i]["lists"][2]["goods_name"] + "</a>"
+				str += "</div>"
+				str += "<a href='list.html?id=" + arry[i]["id"] + "' class='goods_more fr' id='fruit_more'>查看更多 ></a>"
+				str += "</div>"
+				str += "<div class='goods_con clearfix'>"
+				str += "<div class='goods_banner fl'><img src='../images/banner0" + (num++) + ".jpg'></div>"
+				str += "<ul class='goods_list fl'>"
+				for (var j = 0; j < 4; j++) {
+					str += "<li>"
+					str += "<h4><a href='detail.html?id=" + arry[i]["lists"][j]["id"] + "'>" + arry[i]["lists"][j]["goods_name"] + "</a></h4>"
+					str += "<a href='detail.html?id=" + arry[i]["lists"][j]["id"] + "'><img src='../images/" + arry[i]["lists"][j]["goods_img"] + "'></a>"
+					str += "<div class='prize'>¥ " + arry[i]["lists"][j]["goods_price"] + "</div>"
+					str += "</li>"
+
 				}
-			    str+="</ul>"
-				str+="</div></div>"
-				
-				
+				str += "</ul>"
+				str += "</div></div>"
+
+
 			}
-			
-			
+
+
 		}
-		
-function login_success() {
-	
-	if($.cookie('shop-users')!=null){
-		$('#userPs').html("欢迎您：<span style='color: red'>"+eval("(" + $.cookie('shop-users') + ")")['users']+"</span>");
-	}
-}
 
-login_success();
+		function login_success() {
+
+			if ($.cookie('shop-users') != null) {
+				$('#userPs').html("欢迎您:<span style='color: red'>" + eval("(" + $.cookie('shop-users') + ")")['users'] + "</span>");
+			}
+		}
+
+		login_success();
 
 
 
-$('#sous').click(function () {
-	location.href="search_List.html?name="+$('#nAmes').val()
-})
+		$('#sous').click(function () {
+			location.href = "search_List.html?name=" + $('#nAmes').val()
+		})
 
-</script>
+	</script>
 	<div class="footer">
 		<p>CopyRight © 2022 北京亚思晟商务科技有限公司 All Rights Reserved</p>
-		<p>电话:  (010)82780848-806    京ICP备16106131号</p>
+		<p>电话: (010)82780848-806 京ICP备16106131号</p>
 	</div>
 </body>
+
 </html>

@@ -1,3 +1,12 @@
+<!--
+ * @Description: 
+ * @FilePath: \src\main\webapp\shop-user\cart.html
+ * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Date: 2023-06-05 11:32:04
+ * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditTime: 2023-06-07 17:08:52
+ * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+-->
 <!DOCTYPE html
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
@@ -54,7 +63,7 @@
 		<li class="col01"><input type="checkbox" id="btn_check" /></li>
 		<li class="col02"><input type="button" id="btn" value="删除" /></li>
 		<li class="col03">
-			合计(不含运费)：<span>¥</span><em id="count_prices"></em><br />共计<b id="countB"></b>件商品
+			合计(不含运费):<span>¥</span><em id="count_prices"></em><br />共计<b id="countB"></b>件商品
 		</li>
 		<li class="col04"><a id="jiesu" href="">去结算</a></li>
 	</ul>
@@ -73,7 +82,7 @@
 		function login_success() {
 			if ($.cookie("shop-users") != null) {
 				$("#userPs").html(
-					"欢迎您：<span style='color: red'>" +
+					"欢迎您:<span style='color: red'>" +
 					eval("(" + $.cookie("shop-users") + ")")["users"] +
 					"</span>"
 				);

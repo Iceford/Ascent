@@ -51,7 +51,7 @@ $(function () {
 			var ids = $(this).attr("rel");
 			layer.open({
 				icon: 3,
-				content: "这是危险的操作，删除该账户，则账户下的所有信息会全被清除！",
+				content: "这是危险的操作,删除该账户,则账户下的所有信息会全被清除！",
 				title: "确认删除",
 				btn: ['确定', '取消'],
 				yes: function (index, layero) {
@@ -66,7 +66,7 @@ $(function () {
 						success: function (m) {
 							console.log(m)
 							if (m.state == -1) {
-								layer.msg("您的权限不足，无法删除", {
+								layer.msg("您的权限不足,无法删除", {
 									icon: 5, time: 3000
 								});
 							} else if (m.state == 1) {

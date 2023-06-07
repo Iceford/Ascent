@@ -148,7 +148,7 @@
                 var ids = $(this).attr("rel");
                 layer.open({
                     icon: 3,
-                    content: "确认删除 ID 为：" + $(this).attr("rel") + " 的信息吗？",
+                    content: "确认删除 ID 为:" + $(this).attr("rel") + " 的信息吗？",
                     title: "确认删除",
                     btn: ['确定', '取消'],
                     yes: function (index, layero) {
@@ -163,11 +163,11 @@
                             success: function (m) {
                                 console.log(m)
                                 if (m.state == -1) {
-                                    layer.msg("您的权限不足，无法删除", {
+                                    layer.msg("您的权限不足,无法删除", {
                                         icon: 5, time: 3000
                                     });
                                 } else if (m.state == 0) {
-                                    layer.msg("删除失败，该分类下有商品，请先转移", {
+                                    layer.msg("删除失败,该分类下有商品,请先转移", {
                                         icon: 5, time: 3000
                                     });
                                 } else if (m.state == 1) {

@@ -30,9 +30,9 @@ public class CartServiceImpl implements CartServiceInter {
 		Map<String, String> map = new HashMap<String, String>();
 		// 对传入的参数cart进行非空判断
 		if (cart != null) {
-			// 调用CartMapper中的findGetName方法，查询购物车中是否已经存在该商品
+			// 调用CartMapper中的findGetName方法,查询购物车中是否已经存在该商品
 			GoodsCart cartId = carts.findGetName(cart.getUsers_id(), cart.getGoods_name());
-			// 如果不存在，则调用CartMapper中的addCart方法，将商品添加到购物车中
+			// 如果不存在,则调用CartMapper中的addCart方法,将商品添加到购物车中
 			if (cartId == null) {
 				int num = carts.addCart(cart);
 				if (num > 0) {
@@ -41,7 +41,7 @@ public class CartServiceImpl implements CartServiceInter {
 					map.put("state", "0");
 				}
 			} else if (cartId != null) {
-				// 如果已经存在，则将传入的商品数量与购物车中已有的商品数量相加
+				// 如果已经存在,则将传入的商品数量与购物车中已有的商品数量相加
 				cart.setId(cartId.getId());
 				cart.setGoods_num(cartId.getGoods_num() + cart.getGoods_num());
 				// 调用CartMapper中的updateByid方法,更新购物车中该商品的数量
@@ -58,16 +58,16 @@ public class CartServiceImpl implements CartServiceInter {
 		return JSON.toJSONString(map);
 	}
 
-	// 实现findUserIdC方法，用于查询某个用户的购物车中的所有商品
+	// 实现findUserIdC方法,用于查询某个用户的购物车中的所有商品
 	@Override
 	public String findUserIdC(Integer id) throws Exception {
-		// 通过调用CartMapper中的findByUserId方法，查询该用户的所有购物车商品
+		// 通过调用CartMapper中的findByUserId方法,查询该用户的所有购物车商品
 		List<GoodsCart> lists = carts.findByUserId(id);
 		// 将结果转换为JSON格式返回
 		return JSON.toJSONString(lists);
 	}
 
-	// 实现delByid方法，用于删除购物车中的某个商品通过调用CartMapper中的delByid方法，删除购物车中指定id的商品
+	// 实现delByid方法,用于删除购物车中的某个商品通过调用CartMapper中的delByid方法,删除购物车中指定id的商品
 	@Override
 	public String delByid(Integer id) throws Exception {
 		Map<String, String> map = new HashMap<>();
@@ -80,12 +80,12 @@ public class CartServiceImpl implements CartServiceInter {
 		return JSON.toJSONString(map);
 	}
 
-	// 实现了delByIdS方法，用于批量删除购物车中的商品
+	// 实现了delByIdS方法,用于批量删除购物车中的商品
 	@Override
 	public String delByIdS(String strs) {
-		// 将传入的字符串strs按照逗号分隔，得到一个字符串数组
+		// 将传入的字符串strs按照逗号分隔,得到一个字符串数组
 		String[] str = strs.split(",");
-		// 调用CartMapper中的delByIdsArry方法，批量删除购物车中指定id的商品
+		// 调用CartMapper中的delByIdsArry方法,批量删除购物车中指定id的商品
 		int num = carts.delByIdsArry(str);
 		Map<String, String> map = new HashMap<>();
 		if (num > 0) {

@@ -328,7 +328,7 @@ layui.define("layer", function (e) {
                     })()),
                         l.number && a.fileLength > l.number)
                 )
-                    return a.msg("同时最多只能上传的数量为：" + l.number);
+                    return a.msg("同时最多只能上传的数量为:" + l.number);
                 if (l.size > 0 && !(o.ie && o.ie < 10)) {
                     var F;
                     if (

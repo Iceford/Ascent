@@ -1,5 +1,5 @@
 /*
- * @Description: 基于Spring MVC框架的收货地址控制器类，用于处理与收货地址服务的请求
+ * @Description: 基于Spring MVC框架的收货地址控制器类,用于处理与收货地址服务的请求
  * @FilePath: \src\main\java\com\ssm\controller\ReceAddressHandler.java
  * @Author: hhrwvyy5654v huang_rongquan@outlook.com
  * @Date: 2023-06-05 11:32:03
@@ -23,7 +23,7 @@ public class ReceAddressHandler {
 	@Autowired
 	private ReceAddressInter receAddress;
 
-	// 使用@RequestMapping注解将请求映射到"/getByIdaddress.do"路径上,使用"produces"属性设置响应的MIME类型"text/html;charset=UTF-8;"，以确保响应文的编码正确
+	// 使用@RequestMapping注解将请求映射到"/getByIdaddress.do"路径上,使用"produces"属性设置响应的MIME类型"text/html;charset=UTF-8;",以确保响应文的编码正确
 	@RequestMapping(value = "/getByIdaddress.do", produces = "text/html;charset=UTF-8;")
 	@ResponseBody // 使用@ResponseBody注解表示返回的数据直接写入响应体中
 	// 用于根据收货地址ID查询收货地址信息,并将结果以字符串形式返回给客户端

@@ -406,7 +406,7 @@ layui.define(function (e) {
                     .replace(/"/g, "&quot;");
             },
             error: function (e, r) {
-                var c = "Laytpl Error：";
+                var c = "Laytpl Error:";
                 return (
                     "object" == typeof console && console.error(c + e + "\n" + (r || "")),
                     c + e
@@ -1483,7 +1483,7 @@ layui.define(function (e) {
                                     }))
                                 : m(o, l)
                             : (i.hint(
-                                "日期格式不合法<br>必须遵循下述格式：<br>" +
+                                "日期格式不合法<br>必须遵循下述格式:<br>" +
                                 (r.range
                                     ? r.format + " " + r.range + " " + r.format
                                     : r.format) +
@@ -10053,7 +10053,7 @@ layui.define("layer", function (e) {
                     })()),
                         l.number && a.fileLength > l.number)
                 )
-                    return a.msg("同时最多只能上传的数量为：" + l.number);
+                    return a.msg("同时最多只能上传的数量为:" + l.number);
                 if (l.size > 0 && !(o.ie && o.ie < 10)) {
                     var F;
                     if (
@@ -13247,7 +13247,7 @@ layui.define(["laytpl", "laypage", "layer", "form", "util"], function (e) {
                                     ? (i.renderForm(),
                                         i.errorView(
                                             t[n.msgName] ||
-                                            '返回的数据不符合规范，正确的成功状态码应为："' +
+                                            '返回的数据不符合规范,正确的成功状态码应为:"' +
                                             n.statusName +
                                             '": ' +
                                             n.statusCode
@@ -13259,7 +13259,7 @@ layui.define(["laytpl", "laypage", "layer", "form", "util"], function (e) {
                                 "function" == typeof a.done && a.done(t, e, t[n.countName]);
                         },
                         error: function (e, t) {
-                            i.errorView("数据接口请求异常：" + t),
+                            i.errorView("数据接口请求异常:" + t),
                                 i.renderForm(),
                                 i.setColsWidth();
                         },
@@ -13745,7 +13745,7 @@ layui.define(["laytpl", "laypage", "layer", "form", "util"], function (e) {
                     case "LAYTABLE_EXPORT":
                         r.ie
                             ? l.tips(
-                                "导出功能不支持 IE，请用 Chrome 等高级浏览器导出",
+                                "导出功能不支持 IE,请用 Chrome 等高级浏览器导出",
                                 this,
                                 { tips: 3 }
                             )

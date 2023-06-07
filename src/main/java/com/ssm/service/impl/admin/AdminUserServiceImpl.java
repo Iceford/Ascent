@@ -1,5 +1,5 @@
 /*
- * @Description: Java类，名为AdminUserServiceImpl，实现了AdminUserServiceInter接口
+ * @Description: Java类,名为AdminUserServiceImpl,实现了AdminUserServiceInter接口
  * @FilePath: \src\main\java\com\ssm\service\impl\admin\AdminUserServiceImpl.java
  * @Author: hhrwvyy5654v huang_rongquan@outlook.com
  * @Date: 2023-06-05 11:32:03
@@ -40,19 +40,19 @@ public class AdminUserServiceImpl implements AdminUserServiceInter {
 		AdminUser user = adminMapper.adminLogin(adminUser);
 		if (user != null) {
 			blo = true; // 如果存在将blo变量的值设置为true
-			// 将该用户对象转换为JSON格式的字符串,并将其存储在Cookie和Session中，以便在后续的中使用
+			// 将该用户对象转换为JSON格式的字符串,并将其存储在Cookie和Session中,以便在后续的中使用
 			String jsonUser = JSONObject.toJSONString(user);
 			System.out.println(jsonUser);
-			// 创建一个名为"admin-users"的Cookie，并将该JSON格式的字符串进行URL编码后作为Cookie的值
+			// 创建一个名为"admin-users"的Cookie,并将该JSON格式的字符串进行URL编码后作为Cookie的值
 			Cookie cookies = new Cookie("admin-users", java.net.URLEncoder.encode(jsonUser, "UTF-8"));
-			// 使用Spring框架的ServletRequestAttributes类获取HttpServletRequest和HttpServletResponse对象，将Cookie添加到响应中
+			// 使用Spring框架的ServletRequestAttributes类获取HttpServletRequest和HttpServletResponse对象,将Cookie添加到响应中
 			HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
 					.getResponse();
 			response.addCookie(cookies);
-			// 使用Spring框架的ServletRequestAttributes类获取HttpServletRequest和HttpServletResponse对象，将Cookie添加到响应中
+			// 使用Spring框架的ServletRequestAttributes类获取HttpServletRequest和HttpServletResponse对象,将Cookie添加到响应中
 			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
 					.getRequest();
-			// 将JSON的字符串存储在Session中，以便在后续的请求中使用
+			// 将JSON的字符串存储在Session中,以便在后续的请求中使用
 			request.getSession().setAttribute("admin-users", jsonUser);
 		} else {
 			// 如果不存在该管理员用户,则返回false
@@ -61,7 +61,7 @@ public class AdminUserServiceImpl implements AdminUserServiceInter {
 		return blo;
 	}
 
-	// 注销当前用户的登录状态,接收两个参数，一个是类型的request对象，另一个是HttpServletResponse类型的response对象
+	// 注销当前用户的登录状态,接收两个参数,一个是类型的request对象,另一个是HttpServletResponse类型的response对象
 	@Override
 	public void LoginOut(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 通过request.getSession()方法获取当前用户的session对象
@@ -72,20 +72,20 @@ public class AdminUserServiceImpl implements AdminUserServiceInter {
 		session.invalidate();
 		// 通过request.getCookies()方法获取当前用户的所有cookie
 		Cookie[] cookies = request.getCookies();
-		// 遍历每个cookie，将其最大存活时间设置为0
+		// 遍历每个cookie,将其最大存活时间设置为0
 		for (Cookie ck : cookies) {
 			ck.setMaxAge(0);
-			// 通过response.addCookie(ck)方法将cookie添加到响应中，使其失效
+			// 通过response.addCookie(ck)方法将cookie添加到响应中,使其失效
 			response.addCookie(ck);
 		}
 	}
 
-	// 获取所有管理员用户信息：无参数,返回一个字符串类型的JSON格式数据
+	// 获取所有管理员用户信息:无参数,返回一个字符串类型的JSON格式数据
 	@Override
 	public String GetAdmins() throws Exception {
 		// 调用了adminMapper对象的GetAdmin()方法,返回一个AdminUserOV类型的列表
 		List<AdminUserOV> lists = adminMapper.GetAdmin();
-		// 使用JSON.toJSONString(lists)方法将列表转换为JSON格式的字符串，并将其作为返回值返回
+		// 使用JSON.toJSONString(lists)方法将列表转换为JSON格式的字符串,并将其作为返回值返回
 		return JSON.toJSONString(lists);
 	}
 

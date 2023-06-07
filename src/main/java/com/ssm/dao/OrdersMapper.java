@@ -26,22 +26,22 @@ public interface OrdersMapper {
     // 根据订单id删除商品订单信息
     int deleteByidOrders(Integer id) throws Exception;
 
-    // 支付订单，传入订单ID，返回一个整数表示支付结果
+    // 支付订单,传入订单ID,返回一个整数表示支付结果
     int PayOrders(Integer id) throws Exception;
 
-    // 添加订单，传入一个GoodsOrders对象，返回一个整数值表示添加结果
+    // 添加订单,传入一个GoodsOrders对象,返回一个整数值表示添加结果
     int addOrdersMappers(GoodsOrders goodsOrders) throws Exception;
 
-    // 管理员获取待支付或等待支付的订单列表，传入订单状态，返回一个GoodsOrders对象列表
+    // 管理员获取待支付或等待支付的订单列表,传入订单状态,返回一个GoodsOrders对象列表
     List<GoodsOrders> adminDaiOrWaitPay(Integer status) throws Exception;
 
-    // 管理员获取等待物流的订单列表，传入订单状态，返回一个GoodsOrders对象列表
+    // 管理员获取等待物流的订单列表,传入订单状态,返回一个GoodsOrders对象列表
     List<GoodsOrders> adminlogisticsWait(String status) throws Exception;
 
-    // 管理员发货，传入订单ID，返回一个整数值表示发货结果
+    // 管理员发货,传入订单ID,返回一个整数值表示发货结果
     int adminFahuoOrders(Integer id) throws Exception;
 
-    // 管理员根据订单ID获取订单信息，传入订单ID，返回一个Goods对象列表
+    // 管理员根据订单ID获取订单信息,传入订单ID,返回一个Goods对象列表
     List<GoodsOrders> adminGetByorder_id(Integer id) throws Exception;
 
 }

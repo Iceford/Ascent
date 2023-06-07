@@ -753,7 +753,7 @@
                                     }))
                                 : m(o, l)
                             : (i.hint(
-                                "日期格式不合法<br>必须遵循下述格式：<br>" +
+                                "日期格式不合法<br>必须遵循下述格式:<br>" +
                                 (r.range
                                     ? r.format + " " + r.range + " " + r.format
                                     : r.format) +

@@ -60,7 +60,7 @@ $(function () {
 						success: function (m) {
 							console.log(m)
 							if (m.state == -1) {
-								layer.msg("您的权限不足，无法删除", {
+								layer.msg("您的权限不足,无法删除", {
 									icon: 5, time: 3000
 								});
 							} else if (m.state == 1) {
