@@ -1,167 +1,215 @@
+<!--
+ * @Description: 管理项目的依赖和构建配置
+ * @FilePath: \pom.xml
+ * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Date: 2023-06-05 11:32:03
+ * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditTime: 2023-06-07 15:33:11
+ * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+-->
+
+<!-- 定义POM文件的XML构和元素：
+	<project>标签是根标签，用于定义整个项目的配置信息
+	xmlns属性指定了XML命名空间，xsi属性指定了XML Schema实例的命名空间
+	schemaLocation属性指定了XML Schema的位置 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.ssm</groupId>
-	<artifactId>Ascent</artifactId>
-	<version>Web</version>
-	<packaging>war</packaging>
+	<modelVersion>4.0.0</modelVersion>	<!--指定POM模型的版本-->
+	<groupId>com.ssm</groupId>	<!--项目唯一标识符-->
+	<artifactId>Ascent</artifactId>	<!--项目名称-->
+	<version>Web</version>	<!--项目版本-->
+	<packaging>war</packaging>	<!--打包方式-->
 
+	<!--定义项目中使用的属性-->
 	<properties>
-		<spring.version>4.3.8.RELEASE</spring.version>
-		<mybatis.version>3.2.7</mybatis.version>
-		<slf4j.version>1.7.5</slf4j.version>
-		<log4j.version>1.2.17</log4j.version>
-		<dbcp.version>1.4</dbcp.version>
-		<mybatis-spring.version>1.2.2</mybatis-spring.version>
-		<mysql.version>5.1.8</mysql.version>
-		<java.version>1.8</java.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<spring.version>4.3.8.RELEASE</spring.version>	<!--Spring框架的版本号-->
+		<mybatis.version>3.2.7</mybatis.version>	<!--MyBatis框架的版本号-->
+		<slf4j.version>1.7.5</slf4j.version>	<!--SLF4J日志框架的版本号-->
+		<log4j.version>1.2.17</log4j.version>	<!--Log4j日志框架的版本号-->
+		<dbcp.version>1.4</dbcp.version>	<!--Apache
+		Commons DBCP连接池的版本号-->
+		<mybatis-spring.version>1.2.2</mybatis-spring.version>	<!--MyBatis-Spring框架的版本号-->
+		<mysql.version>5.1.8</mysql.version>	<!--MySQL数据库驱动的版本号-->
+		<java.version>1.8</java.version>	<!--Java编译器的版本号-->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>	<!--项目源代码的编码格式-->
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>	<!--项目报告的编码格式-->
 	</properties>
 
 
+	<!--定义项目中使用的依赖-->
 	<dependencies>
+		<!--Spring框架的核心模块提供了Spring框架的基本功能，如IoC和DI等-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
+		<!--Spring框架的Web模块，提供了Web应用程序开发所需的功能，如MVC框架、RESTful
+		Web服务等-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
+		<!--Spring框架的ORM模块，提供了对ORM框架的支持，如Hibernate、MyBatis等-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
+		<!--Spring框架的AOP模块，提供了向切面编程的支持-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
+		<!--Spring架的事务模块，提供了对事务的支持-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 
+		<!--框架的JDBC模块，提供了对JDBC的支持-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 
+		<!--Spring框架的Web
+		MVC模块，提供了Web应用程序开发所需的MVC框架-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
+		<!--Spring框架的AOP模块，提供了面向切面编程的支持-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 
-
+		<!--Spring框架的上下文模块，提供了Spring框架的核心功能，如IoC和DI等-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 
+		<!--Spring框架的测试模块，提供了对Spring应用程序的测试支持-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 
+		<!--MyBatis框架的核心模块，提供了ORM框架的支持-->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>${mybatis.version}</version>
 		</dependency>
 
-
+		<!--MyBatis-Spring框架的核心模块，提供了MyBatis和Spring框架的集成支持-->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
-
 			<version>${mybatis-spring.version}</version>
 		</dependency>
 
-
+		<!--MySQL数据库驱动的Java实现，提供了对MySQL数据库的支持-->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.version}</version>
 		</dependency>
 
-
+		<!--JSTL标准标签库，提供了在JSP页面中使用的标签和函数-->
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
 
+		<!--Log4j日志框架，提供了对日志的支持-->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
 
-
+		<!--SLF4J日志框架的API模块，提供了对日志的支持-->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
 
+		<!--SLF4J日志框架的Log4j
+		1.2实现模块，提供了对Log4j 1.2的支持-->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
 
+		<!--Fastjson
+		JSON解析器，提供了对JSON的支持-->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.2.58</version>
 		</dependency>
+
+		<!--JSON解析器，提供了对JSON的支持-->
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20180813</version>
 		</dependency>
 
-
+		<!--Apache
+		Commons FileUpload组件，提供了上传的支持-->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.4</version>
 		</dependency>
+
+		<!--Apache
+		Commons IO组件，提供了对I/O操作的支持-->
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.6</version>
 		</dependency>
 
+		<!--Apache
+		Commons Codec组件，提供了对编码和解码的支持-->
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
 			<version>1.9</version>
 		</dependency>
 
-
+		<!--Apache
+		Commons DBCP组件，提供了对数据库连接池的支持-->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>${dbcp.version}</version>
 		</dependency>
 
-
+		<!--Servlet
+		API，提供了对Servlet的支持-->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -169,6 +217,7 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!--JUnit测试框架，供了对单元测试的支持-->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -176,6 +225,8 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!--Apache
+		Commons Logging组件，提供了对日志的支持-->
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
@@ -183,46 +234,78 @@
 		</dependency>
 	</dependencies>
 
+
+	<!--Maven项目的构建配置文件，主要用于指定项目的构建方式和依赖关系-->
 	<build>
+
+
+		<!--Maven项目的插件配置标签，用于指定项目所需的插件-->
 		<plugins>
+			<!--插件配置标签，用于指定一个插件的详细信息-->
 			<plugin>
+				<!--由ApacheTomcat开发团队提供的Maven插件-->
 				<groupId>org.apache.tomcat.maven</groupId>
+				<!--用于Tomcat
+				7的Maven插件-->
 				<artifactId>tomcat7-maven-plugin</artifactId>
+				<!--插件的版本号-->
 				<version>2.2</version>
+				<!--插件的配置标签,用于指定插件的具体配置信息-->
 				<configuration>
-					<port>8888</port>
-					<path>/Shop-SSM</path>
-					<uriEncoding>UTF-8</uriEncoding>
+					<port>8888</port>	<!--指定Tomcat服务器的端口号-->
+					<path>/Shop-SSM</path>	<!--指定Tomcat服务器的路径-->
+					<uriEncoding>UTF-8</uriEncoding>	<!--指定URI的编码方式为UTF-8-->
 				</configuration>
 			</plugin>
+
+			<!--插件配置标签，用于指定一个插件的详细信息-->
 			<plugin>
+				<!--由Apache
+				Maven开发团队提供的插件-->
 				<groupId>org.apache.maven.plugins</groupId>
+				<!--一个用于编译Java代码的Maven件-->
 				<artifactId>maven-compiler-plugin</artifactId>
+				<!--插件的版本号-->
 				<version>3.8.0</version>
+				<!--插件的配置标签，用于指定插件的具体配置信息-->
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>1.8</source>	<!--指定Java源代码的版本-->
+					<target>1.8</target>	<!--指定编译后的字节码版本-->
 				</configuration>
 			</plugin>
 		</plugins>
+
+
+		<!--Maven项目的资源配置标签，用于指定项目所需的资源文件-->
 		<resources>
+			<!--资源配置标签，用于指定一个资源文件的详细信息-->
 			<resource>
+				<!--资源文件所在的目录-->
 				<directory>src/main/resources</directory>
+				<!--资源文件的包含规则-->
 				<includes>
 					<include>**/*.properties</include>
 					<include>**/*.xml</include>
 				</includes>
+				<!--指定是否需要对资源文件进行过滤-->
 				<filtering>true</filtering>
 			</resource>
+
+			<!--资源配置标签，用于指定一个资源文件的详细信息-->
 			<resource>
+				<!--资源文件所在的目录-->
 				<directory>src/main/java</directory>
+				<!--资源文件的包含规则-->
 				<includes>
 					<include>**/*.properties</include>
 					<include>**/*.xml</include>
 				</includes>
+				<!--指定是否需要对资源文件进行过滤-->
 				<filtering>true</filtering>
 			</resource>
 		</resources>
 
+
 	</build>
+
 </project>
