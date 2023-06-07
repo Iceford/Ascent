@@ -15,17 +15,14 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.alibaba.fastjson.JSON;
 import com.ssm.dao.CartMapper;
-import com.ssm.dao.UserMapper;
 import com.ssm.po.GoodsCart;
 import com.ssm.service.inter.CartServiceInter;
 
 public class CartServiceImpl implements CartServiceInter {
 
-	// 使用了@Autowired注解,自动装配CartMapper和UserMapper两个类的实例
+	// 使用了@Autowired注解,自动装配CartMapper类的实例
 	@Autowired
 	private CartMapper carts;
-	@Autowired
-	private UserMapper usersm;
 
 	// 实现了addCart方法,用于向购物车中添加商品
 	@Override
