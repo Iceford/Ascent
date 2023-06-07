@@ -1,5 +1,5 @@
 /*
- * @Description: JavaÀà£¬ÃûÎªAdminUserServiceImpl£¬ÊµÏÖÁËAdminUserServiceInter½Ó¿Ú
+ * @Description: Javaç±»ï¼Œåä¸ºAdminUserServiceImplï¼Œå®ç°äº†AdminUserServiceInteræ¥å£
  * @FilePath: \src\main\java\com\ssm\service\impl\admin\AdminUserServiceImpl.java
  * @Author: hhrwvyy5654v huang_rongquan@outlook.com
  * @Date: 2023-06-05 11:32:03
@@ -32,60 +32,60 @@ public class AdminUserServiceImpl implements AdminUserServiceInter {
 	@Autowired
 	private AdminUserMapper adminMapper;
 
-	// ÑéÖ¤¹ÜÀíÔ±ÓÃ»§µÄµÇÂ¼ĞÅÏ¢,²¢½«Æä´æ´¢ÔÚCookieºÍSessionÖĞ,ÒÔ±ãÔÚºóĞøµÄÇëÇóÖĞÊ¹ÓÃ
+	// éªŒè¯ç®¡ç†å‘˜ç”¨æˆ·çš„ç™»å½•ä¿¡æ¯,å¹¶å°†å…¶å­˜å‚¨åœ¨Cookieå’ŒSessionä¸­,ä»¥ä¾¿åœ¨åç»­çš„è¯·æ±‚ä¸­ä½¿ç”¨
 	@Override
 	public boolean adminLogin(AdminUser adminUser) throws Exception {
 		boolean blo = false;
-		// µ÷ÓÃAdminUserMapper¶ÔÏóµÄadminLogin·½·¨,½«´«ÈëµÄAdminUser¶ÔÏó×÷Îª²ÎÊı,´ÓÊı¾İ¿âÖĞ²éÑ¯ÊÇ·ñ´æÔÚ¸Ã¹ÜÀíÔ±ÓÃ»§
+		// è°ƒç”¨AdminUserMapperå¯¹è±¡çš„adminLoginæ–¹æ³•,å°†ä¼ å…¥çš„AdminUserå¯¹è±¡ä½œä¸ºå‚æ•°,ä»æ•°æ®åº“ä¸­æŸ¥è¯¢æ˜¯å¦å­˜åœ¨è¯¥ç®¡ç†å‘˜ç”¨æˆ·
 		AdminUser user = adminMapper.adminLogin(adminUser);
 		if (user != null) {
-			blo = true; // Èç¹û´æÔÚ½«blo±äÁ¿µÄÖµÉèÖÃÎªtrue
-			// ½«¸ÃÓÃ»§¶ÔÏó×ª»»ÎªJSON¸ñÊ½µÄ×Ö·û´®,²¢½«Æä´æ´¢ÔÚCookieºÍSessionÖĞ£¬ÒÔ±ãÔÚºóĞøµÄÖĞÊ¹ÓÃ
+			blo = true; // å¦‚æœå­˜åœ¨å°†bloå˜é‡çš„å€¼è®¾ç½®ä¸ºtrue
+			// å°†è¯¥ç”¨æˆ·å¯¹è±¡è½¬æ¢ä¸ºJSONæ ¼å¼çš„å­—ç¬¦ä¸²,å¹¶å°†å…¶å­˜å‚¨åœ¨Cookieå’ŒSessionä¸­ï¼Œä»¥ä¾¿åœ¨åç»­çš„ä¸­ä½¿ç”¨
 			String jsonUser = JSONObject.toJSONString(user);
 			System.out.println(jsonUser);
-			// ´´½¨Ò»¸öÃûÎª"admin-users"µÄCookie£¬²¢½«¸ÃJSON¸ñÊ½µÄ×Ö·û´®½øĞĞURL±àÂëºó×÷ÎªCookieµÄÖµ
+			// åˆ›å»ºä¸€ä¸ªåä¸º"admin-users"çš„Cookieï¼Œå¹¶å°†è¯¥JSONæ ¼å¼çš„å­—ç¬¦ä¸²è¿›è¡ŒURLç¼–ç åä½œä¸ºCookieçš„å€¼
 			Cookie cookies = new Cookie("admin-users", java.net.URLEncoder.encode(jsonUser, "UTF-8"));
-			// Ê¹ÓÃSpring¿ò¼ÜµÄServletRequestAttributesÀà»ñÈ¡HttpServletRequestºÍHttpServletResponse¶ÔÏó£¬½«CookieÌí¼Óµ½ÏìÓ¦ÖĞ
+			// ä½¿ç”¨Springæ¡†æ¶çš„ServletRequestAttributesç±»è·å–HttpServletRequestå’ŒHttpServletResponseå¯¹è±¡ï¼Œå°†Cookieæ·»åŠ åˆ°å“åº”ä¸­
 			HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
 					.getResponse();
 			response.addCookie(cookies);
-			// Ê¹ÓÃSpring¿ò¼ÜµÄServletRequestAttributesÀà»ñÈ¡HttpServletRequestºÍHttpServletResponse¶ÔÏó£¬½«CookieÌí¼Óµ½ÏìÓ¦ÖĞ
+			// ä½¿ç”¨Springæ¡†æ¶çš„ServletRequestAttributesç±»è·å–HttpServletRequestå’ŒHttpServletResponseå¯¹è±¡ï¼Œå°†Cookieæ·»åŠ åˆ°å“åº”ä¸­
 			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
 					.getRequest();
-			// ½«JSONµÄ×Ö·û´®´æ´¢ÔÚSessionÖĞ£¬ÒÔ±ãÔÚºóĞøµÄÇëÇóÖĞÊ¹ÓÃ
+			// å°†JSONçš„å­—ç¬¦ä¸²å­˜å‚¨åœ¨Sessionä¸­ï¼Œä»¥ä¾¿åœ¨åç»­çš„è¯·æ±‚ä¸­ä½¿ç”¨
 			request.getSession().setAttribute("admin-users", jsonUser);
 		} else {
-			// Èç¹û²»´æÔÚ¸Ã¹ÜÀíÔ±ÓÃ»§,Ôò·µ»Øfalse
+			// å¦‚æœä¸å­˜åœ¨è¯¥ç®¡ç†å‘˜ç”¨æˆ·,åˆ™è¿”å›false
 			return false;
 		}
 		return blo;
 	}
 
-	// ×¢Ïúµ±Ç°ÓÃ»§µÄµÇÂ¼×´Ì¬,½ÓÊÕÁ½¸ö²ÎÊı£¬Ò»¸öÊÇÀàĞÍµÄrequest¶ÔÏó£¬ÁíÒ»¸öÊÇHttpServletResponseÀàĞÍµÄresponse¶ÔÏó
+	// æ³¨é”€å½“å‰ç”¨æˆ·çš„ç™»å½•çŠ¶æ€,æ¥æ”¶ä¸¤ä¸ªå‚æ•°ï¼Œä¸€ä¸ªæ˜¯ç±»å‹çš„requestå¯¹è±¡ï¼Œå¦ä¸€ä¸ªæ˜¯HttpServletResponseç±»å‹çš„responseå¯¹è±¡
 	@Override
 	public void LoginOut(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// Í¨¹ırequest.getSession()·½·¨»ñÈ¡µ±Ç°ÓÃ»§µÄsession¶ÔÏó
+		// é€šè¿‡request.getSession()æ–¹æ³•è·å–å½“å‰ç”¨æˆ·çš„sessionå¯¹è±¡
 		HttpSession session = request.getSession();
-		// µ÷ÓÃsession.removeAttribute("admin-users")·½·¨½«sessionÖĞÃûÎª"admin-users"µÄÊôĞÔÒÆ³ı
+		// è°ƒç”¨session.removeAttribute("admin-users")æ–¹æ³•å°†sessionä¸­åä¸º"admin-users"çš„å±æ€§ç§»é™¤
 		session.removeAttribute("admin-users");
-		// µ÷ÓÃsession.invalidate()·½·¨Ê¹sessionÊ§Ğ§
+		// è°ƒç”¨session.invalidate()æ–¹æ³•ä½¿sessionå¤±æ•ˆ
 		session.invalidate();
-		// Í¨¹ırequest.getCookies()·½·¨»ñÈ¡µ±Ç°ÓÃ»§µÄËùÓĞcookie
+		// é€šè¿‡request.getCookies()æ–¹æ³•è·å–å½“å‰ç”¨æˆ·çš„æ‰€æœ‰cookie
 		Cookie[] cookies = request.getCookies();
-		// ±éÀúÃ¿¸öcookie£¬½«Æä×î´ó´æ»îÊ±¼äÉèÖÃÎª0
+		// éå†æ¯ä¸ªcookieï¼Œå°†å…¶æœ€å¤§å­˜æ´»æ—¶é—´è®¾ç½®ä¸º0
 		for (Cookie ck : cookies) {
 			ck.setMaxAge(0);
-			// Í¨¹ıresponse.addCookie(ck)·½·¨½«cookieÌí¼Óµ½ÏìÓ¦ÖĞ£¬Ê¹ÆäÊ§Ğ§
+			// é€šè¿‡response.addCookie(ck)æ–¹æ³•å°†cookieæ·»åŠ åˆ°å“åº”ä¸­ï¼Œä½¿å…¶å¤±æ•ˆ
 			response.addCookie(ck);
 		}
 	}
 
-	// »ñÈ¡ËùÓĞ¹ÜÀíÔ±ÓÃ»§ĞÅÏ¢£ºÎŞ²ÎÊı,·µ»ØÒ»¸ö×Ö·û´®ÀàĞÍµÄJSON¸ñÊ½Êı¾İ
+	// è·å–æ‰€æœ‰ç®¡ç†å‘˜ç”¨æˆ·ä¿¡æ¯ï¼šæ— å‚æ•°,è¿”å›ä¸€ä¸ªå­—ç¬¦ä¸²ç±»å‹çš„JSONæ ¼å¼æ•°æ®
 	@Override
 	public String GetAdmins() throws Exception {
-		// µ÷ÓÃÁËadminMapper¶ÔÏóµÄGetAdmin()·½·¨,·µ»ØÒ»¸öAdminUserOVÀàĞÍµÄÁĞ±í
+		// è°ƒç”¨äº†adminMapperå¯¹è±¡çš„GetAdmin()æ–¹æ³•,è¿”å›ä¸€ä¸ªAdminUserOVç±»å‹çš„åˆ—è¡¨
 		List<AdminUserOV> lists = adminMapper.GetAdmin();
-		// Ê¹ÓÃJSON.toJSONString(lists)·½·¨½«ÁĞ±í×ª»»ÎªJSON¸ñÊ½µÄ×Ö·û´®£¬²¢½«Æä×÷Îª·µ»ØÖµ·µ»Ø
+		// ä½¿ç”¨JSON.toJSONString(lists)æ–¹æ³•å°†åˆ—è¡¨è½¬æ¢ä¸ºJSONæ ¼å¼çš„å­—ç¬¦ä¸²ï¼Œå¹¶å°†å…¶ä½œä¸ºè¿”å›å€¼è¿”å›
 		return JSON.toJSONString(lists);
 	}
 
