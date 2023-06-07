@@ -1,37 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * @Description: Spring配置文件,定义一些bean,这些bean是应用程序中的服务层组件
+ * @FilePath: \src\main\resources\spring\applicationContext-service.xml
+ * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Date: 2023-06-05 11:32:03
+ * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditTime: 2023-06-07 14:47:28
+ * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+-->
+
+<!-- 
+	(1)Spring配置文件的开头,定义了XML命名空间和schemaLocation,使用了以下命名空间
+	xmlns:beans：定义了Spring的bean元素，用于定义应用程序中的对象。
+	xmlns:context：定义了Spring的context命名空间，用于加载属性文件和其他上下文相关的配置。
+	xmlns:xsi：定义了XML Schema实例命名空间，用于指定schemaLocation属性。
+	xmlns:aop：定义了Spring的aop命名空间，用于配置面向切面编程。
+	xmlns:tx：定义了Spring的tx命名空间，用于配置事务管理。
+	xmlns:mvc：定义了Spring的mvc命名空间，用于配置Spring MVC框架。
+
+	(2)使用了xsi:schemaLocation属性来指定每个命名空间的XML Schema文件的位置。
+	这些文件通常位于Spring框架的jar包中，但也可以从Spring的官方网站上下载。
+	这样做可以帮助Spring验证配置文件的正确性，并提供代码提示和自动完成功能。
+-->
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans.xsd
-	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context-4.3.xsd
-	http://www.springframework.org/schema/aop
-	http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
-	http://www.springframework.org/schema/tx
-	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
-	http://www.springframework.org/schema/mvc
-	http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
-	<!--所有service的bean都在里面  -->
-	<bean id="userServiceImpl" class="com.ssm.service.impl.UserServiceImpl"/>
-	<!-- 商品种类 -->
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+						http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+						http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+	<!--用户服务-->
+	<bean id="userServiceImpl" class="com.ssm.service.impl.UserServiceImpl" />
+	<!--商品类型-->
 	<bean id="typeServiceImpl" class="com.ssm.service.impl.TypeServiceImpl"></bean>
-	<!-- 收货地址 -->
+	<!--收货地址-->
 	<bean id="receAddressImppl" class="com.ssm.service.impl.ReceAddressImppl"></bean>
-	<!--  商品详情-->
+	<!--商品详情-->
 	<bean id="goodsServiceImpl" class="com.ssm.service.impl.GoodsServiceImpl"></bean>
-	<!-- 购物车 -->
+	<!--购物车-->
 	<bean id="cartServiceImpl" class="com.ssm.service.impl.CartServiceImpl"></bean>
-	<!-- 订单 -->
+	<!--订单-->
 	<bean id="ordersServiceImpl" class="com.ssm.service.impl.OrdersServiceImpl"></bean>
-	
-	
-	<!-- 后台管理员 -->
+
+
+	<!--后台管理员-->
 	<bean id="adminUserServiceImpl" class="com.ssm.service.impl.admin.AdminUserServiceImpl"></bean>
-	
-	<!-- 后台管理员权限 -->
+
+	<!--后台管理员权限-->
 	<bean id="shiroServiceImpl" class="com.ssm.service.impl.ShiroServiceImpl"></bean>
+
 </beans>

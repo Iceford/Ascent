@@ -1,23 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+* @Description: Spring配置文件，定义一些在应用程序中使用的bean
+* @FilePath: \src\main\resources\spring\applicationContext-dao.xml
+* @Author: hhrwvyy5654v huang_rongquan@outlook.com
+* @Date: 2023-06-05 11:32:03
+* @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+* @LastEditTime: 2023-06-07 11:55:28
+* Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved.
+-->
+
+<!-- 
+	(1)Spring配置文件的开头,定义了XML命名空间和schemaLocation,使用了以下命名空间
+	xmlns:beans：定义了Spring的bean元素，用于定义应用程序中的对象。
+	xmlns:context：定义了Spring的context命名空间，用于加载属性文件和其他上下文相关的配置。
+	xmlns:xsi：定义了XML Schema实例命名空间，用于指定schemaLocation属性。
+	xmlns:aop：定义了Spring的aop命名空间，用于配置面向切面编程。
+	xmlns:tx：定义了Spring的tx命名空间，用于配置事务管理。
+	xmlns:mvc：定义了Spring的mvc命名空间，用于配置Spring MVC框架。
+
+	(2)使用了xsi:schemaLocation属性来指定每个命名空间的XML Schema文件的位置。
+	这些文件通常位于Spring框架的jar包中，但也可以从Spring的官方网站上下载。
+	这样做可以帮助Spring验证配置文件的正确性，并提供代码提示和自动完成功能。
+-->
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans.xsd
-	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context-4.3.xsd
-	http://www.springframework.org/schema/aop
-	http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
-	http://www.springframework.org/schema/tx
-	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
-	http://www.springframework.org/schema/mvc
-	http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
-	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+						http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+						http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+	<!-- 告诉Spring加载属性文件并将属性文件中的属性值注入到bean的属性中 -->
 	<context:property-placeholder location="classpath:db.properties" />
-	
+
+	<!-- (1)定义名为dataSource的bean,使用Apache Commons DBCP连接池来管理数据库连接;
+	设置包括数据库驱动程序的类名数据库的URL、用户名和密码，以及连接池的最大活动连接数和最大空闲连接数的属性;
+	(2)这些属性的值是从属性文件(位置是在context:property-placeholder元素中指定的)中获取的。
+	(3)定义一个destroy-method属性,指定在销毁这个bean时要调用close方法,
+	该方法会关闭连接池中的所有连接,可以确保在应用程序关闭时,所有的数据库连接都被正确地关闭,以避免资源泄漏和其他问题
+	-->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="${jdbc.driver}" />
 		<property name="url" value="${jdbc.url}" />
@@ -26,18 +51,30 @@
 		<property name="maxActive" value="10" />
 		<property name="maxIdle" value="5" />
 	</bean>
-	
-	
+
+	<!--使用MyBatis框架来管理数据库连接和执行SQL语句
+	这个bean的类是org.mybatis.spring.SqlSessionFactoryBean，
+	它是MyBatis框架中的一个工厂类，用于创建SqlSessionFactory对象。
+	SqlSessionFactory是MyBatis框架中的一个重要概念，它是一个线程安全的对象，用于创建SqlSession对象。
+	SqlSession是MyBatis框架中的一个轻量级对象，它封装了对数据库的操作，包括执行SQL语句、提交事务、关闭连接等
+	-->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		
+		<!--指定MyBatis的配置文件的位置为classpath:mybatis/SqlMapConfig.xml,该文件通常包含了数据库连接的配置、SQL语句的映射以及其他一些配置信息-->
 		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml" />
-		
-		<property name="dataSource" ref="dataSource"/>
+		<!-- 指定数据源,使用了之前定义的名为dataSource的bean -->
+		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	
+	<!-- (1)定义一个名为MapperScannerConfigurer的bean,使用MyBatis框架来自动扫描指定包下的所有Mapper接口并将它们注册到Spring容器中
+	(2)MapperScannerConfigurer是MyBatis框架中的一个配置类，它可以自动扫描指定包下的所有Mapper接口，并将它们注册到SqlSessionFactory中。
+	这样做可以使我们的代码更加简洁和易于维护，因为我们不需要手动注册每个Mapper接口。
+	同时，它还可以自动为Mapper接口生成代理对象，使我们可以像调用普通Java接口一样调用Mapper接口中的方法。
+	-->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.ssm.dao"/>
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-    </bean>
+		<!-- 指定要扫描的Mapper接口所在的包名为com.ssm.dao -->
+		<property name="basePackage" value="com.ssm.dao" />
+		<!-- 指定SqlSessionFactory的bean的名称 -->
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+
 </beans>
