@@ -1,3 +1,12 @@
+/*
+ * @Description: 
+ * @FilePath: \src\main\webapp\js\register.js
+ * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Date: 2023-06-05 11:32:04
+ * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditTime: 2023-06-08 00:08:24
+ * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+ */
 $(function () {
 
 	var error_name = false;

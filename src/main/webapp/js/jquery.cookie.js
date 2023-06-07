@@ -1,3 +1,12 @@
+/*
+ * @Description: 
+ * @FilePath: \src\main\webapp\js\jquery.cookie.js
+ * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Date: 2023-06-05 11:32:03
+ * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditTime: 2023-06-08 00:07:09
+ * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+ */
 /*!
  * jQuery Cookie Plugin v1.4.1
  * https://github.com/carhartl/jquery-cookie

@@ -1,3 +1,12 @@
+/*
+ * @Description: 
+ * @FilePath: \src\main\webapp\js\jquery-3.3.1.js
+ * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Date: 2023-06-05 11:32:03
+ * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditTime: 2023-06-08 00:06:46
+ * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+ */
 /*!
  * jQuery JavaScript Library v3.3.1
  * https://jquery.com/

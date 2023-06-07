@@ -1,3 +1,12 @@
+/*
+ * @Description: 
+ * @FilePath: \src\main\webapp\js\Cart.js
+ * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Date: 2023-06-05 11:32:03
+ * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditTime: 2023-06-08 00:05:35
+ * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+ */
 /*$(function(){
 	var carts = 1;
 	$('#add_cart').click(function() {//加入购物车
