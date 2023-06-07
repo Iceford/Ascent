@@ -1,16 +1,28 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE configuration
-PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * @Description: 配置 MyBatis 的全局设置和类型别名，以便在 MyBatis 的映射文件中使用
+ * @FilePath: \src\main\resources\mybatis\SqlMapConfig.xml
+ * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Date: 2023-06-05 11:32:03
+ * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditTime: 2023-06-07 11:38:18
+ * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+-->
+
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<!--settings 元素，用于配置 MyBatis 的全局设置-->
 	<settings>
 		<!-- 开启延迟加载 -->
 		<setting name="lazyLoadingEnabled" value="true" />
+		<!-- 不使用积极的延迟加载 -->
 		<setting name="aggressiveLazyLoading" value="false" />
 	</settings>
-	
-	
+
+	<!-- typeAliases" 元素,用于配置类型别名 -->
 	<typeAliases>
+		<!-- 指定包名"com.ssm.po"，表示将这个包中所有类都注册为MyBatis 的类型别名。
+			这样在 MyBatis 的映射文件中就可以使用这些类型别名来引用这些类，而不需要使用完整的类名 -->
 		<package name="com.ssm.po" />
 	</typeAliases>
 </configuration>
