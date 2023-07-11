@@ -28,28 +28,47 @@
     <!--对应goodsIndex()方法,用于查询商品类型信息和商品信息,
         并将查询结果集映射到一个名为"goodslist"的<resultMap>标签中定义的映射关系中,
             方便后续数据处理-->
-    <select id="goodsIndex" resultMap="goodslist"> SELECT t.*, g.`goods_name`, g.`goods_img`,
-        g.`goods_price`, g.`id` gid FROM shop_type t LEFT JOIN shop_goods g ON t.`id` =
-        g.`goods_type` </select>
+    <select id="goodsIndex" resultMap="goodslist">
+        SELECT t.*,
+               g.`goods_name`,
+               g.`goods_img`,
+               g.`goods_price`,
+               g.`id` gid
+        FROM shop_type t
+                 LEFT JOIN shop_goods g ON t.`id` =
+                                           g.`goods_type`
+    </select>
 
 
     <!--对应admin_del_type()方法,通过传入的参数id确定要删除的商品类型信息-->
-    <delete id="admin_del_type" parameterType="java.lang.Integer"> DELETE FROM shop_type WHERE id =
-        #{id} </delete>
+    <delete id="admin_del_type" parameterType="java.lang.Integer">
+        DELETE
+        FROM shop_type
+        WHERE id =
+              #{id}
+    </delete>
 
 
     <!--对应AdminaddType()方法,用于向数据库中添加商品类型信息-->
-    <insert id="AdminaddType" parameterType="GoodsType"> INSERT INTO shop_type (type_name, date)
-        VALUES (#{type_name}, #{date}) </insert>
+    <insert id="AdminaddType" parameterType="GoodsType">
+        INSERT INTO shop_type (type_name, date)
+        VALUES (#{type_name}, #{date})
+    </insert>
 
 
     <!--对应AdminGetIdType()方法,根据商品类型id查询商品类型信息,并将查询结果集射到一个GoodsType对象中,方便后续的数据处理-->
-    <select id="AdminGetIdType" parameterType="java.lang.Integer" resultType="GoodsType"> select *
-        from shop_type where id = #{id} </select>
+    <select id="AdminGetIdType" parameterType="java.lang.Integer" resultType="GoodsType">
+        select *
+        from shop_type
+        where id = #{id}
+    </select>
 
 
     <!--对应AdminUpdateType()方法,用于更新商品类型信息-->
-    <update id="AdminUpdateType" parameterType="GoodsType"> UPDATE shop_type SET
-        type_name=#{type_name} WHERE id = #{id} </update>
+    <update id="AdminUpdateType" parameterType="GoodsType">
+        UPDATE shop_type
+        SET type_name=#{type_name}
+        WHERE id = #{id}
+    </update>
 
 </mapper>

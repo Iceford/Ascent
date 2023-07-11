@@ -12,52 +12,83 @@
 <mapper namespace="com.ssm.dao.OrdersMapper">   <!--指定命名空间,用于区分不同的Mapper文件-->
 
     <!--对应getCount()方法,用于查询某个用户的订单数量-->
-    <select id="getCount" resultType="java.lang.Integer" parameterType="java.lang.Integer"> SELECT
-        COUNT(*) FROM orders where order_userid = #{num} </select>
+    <select id="getCount" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM orders
+        where order_userid = #{num}
+    </select>
 
 
     <!--对应FenyeList()方法,用于分页查询某个用户的订单列表
     SQL语句的具体内容:从名为"orders"的表中查询所有符合条件"order_userid = #{order_userid}"的记录,
     限制返回结果的起始位置为"#{page}",每页返回3条记录-->
-    <select id="FenyeList" parameterType="java.lang.Integer" resultType="GoodsOrders"> SELECT * FROM
-        orders WHERE order_userid = #{order_userid} LIMIT #{page} , 3 </select>
+    <select id="FenyeList" parameterType="java.lang.Integer" resultType="GoodsOrders">
+        SELECT *
+        FROM orders
+        WHERE order_userid = #{order_userid} LIMIT #{page}
+            , 3
+    </select>
 
 
     <!--对应deleteByidOrders()方法,用于根据订单ID删除某个订单-->
-    <delete id="deleteByidOrders" parameterType="java.lang.Integer"> DELETE FROM orders WHERE id =
-        #{id} </delete>
+    <delete id="deleteByidOrders" parameterType="java.lang.Integer">
+        DELETE
+        FROM orders
+        WHERE id =
+              #{id}
+    </delete>
 
 
     <!--对应PayOrders()方法,用于更新某个订单的支付状态-->
-    <update id="PayOrders" parameterType="java.lang.Integer"> UPDATE orders SET order_succ= 1 WHERE
-        id = #{id} </update>
+    <update id="PayOrders" parameterType="java.lang.Integer">
+        UPDATE orders
+        SET order_succ= 1
+        WHERE id = #{id}
+    </update>
 
 
     <!--对应addOrdersMappers()方法,用于向订单表中添加一条新的订单记录-->
-    <insert id="addOrdersMappers" parameterType="GoodsOrders"> insert into `orders` (`order_userid`,
-        `address`, `pay_type`, `goods_name`, `goods_num`, `goods_price`, `order_date`, `order_succ`,
-        `order_counts`, `order_code`, `order_state`) values (#{order_userid}, #{address},
-        #{pay_type}, #{goods_name}, #{goods_num}, #{goods_price}, #{order_date}, #{order_succ},
-        #{order_counts}, #{order_code}, #{order_state}); </insert>
+    <insert id="addOrdersMappers" parameterType="GoodsOrders">
+        insert into `orders` (`order_userid`,
+                              `address`, `pay_type`, `goods_name`, `goods_num`, `goods_price`, `order_date`,
+                              `order_succ`,
+                              `order_counts`, `order_code`, `order_state`)
+        values (#{order_userid}, #{address},
+                #{pay_type}, #{goods_name}, #{goods_num}, #{goods_price}, #{order_date}, #{order_succ},
+                #{order_counts}, #{order_code}, #{order_state});
+    </insert>
 
 
     <!--对应adminDaiOrWaitPay()方法,用于查询所有待处理或待支付的订单-->
     <select id="adminDaiOrWaitPay" resultType="GoodsOrders" parameterType="java.lang.Integer">
-        SELECT * FROM orders WHERE order_succ = #{status} </select>
+        SELECT *
+        FROM orders
+        WHERE order_succ = #{status}
+    </select>
 
 
     <!--对应adminlogisticsWait()方法,用于查询所有待发货的订单-->
-    <select id="adminlogisticsWait" resultType="GoodsOrders" parameterType="String"> select * from
-        orders where order_state = #{status} </select>
+    <select id="adminlogisticsWait" resultType="GoodsOrders" parameterType="String">
+        select *
+        from orders
+        where order_state = #{status}
+    </select>
 
 
     <!--对应adminFahuoOrders()方法,用于将某个订单的状态更新为"查物流",表示已发货-->
-    <update id="adminFahuoOrders" parameterType="java.lang.Integer"> UPDATE orders SET order_state =
-        '查物流' WHERE id = #{id} </update>
+    <update id="adminFahuoOrders" parameterType="java.lang.Integer">
+        UPDATE orders
+        SET order_state =
+                '查物流'
+        WHERE id = #{id}
+    </update>
 
 
     <!--对应adminGetByorder_id()方法,用于查询某个用户的所有订单-->
     <select id="adminGetByorder_id" resultType="GoodsOrders" parameterType="java.lang.Integer">
-        select * from orders where order_userid = #{id} </select>
+        select *
+        from orders
+        where order_userid = #{id}
+    </select>
 
 </mapper>
