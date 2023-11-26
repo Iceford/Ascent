@@ -21,7 +21,8 @@
 
     <!--对应updateAddress()方法,用于更新收货地址信息。
     使用了if标签来判断传入的值是否为空,如果不为空则更新对应字段-->
-    <update id="updateAddress" parameterType="ReceAddress"> update rece_address <set>
+    <update id="updateAddress" parameterType="ReceAddress">update rece_address
+        <set>
             <if test="addres.recename != null and addres.recename != ''">
                 recename = #{addres.recename},
             </if>
@@ -34,8 +35,10 @@
             <if test="addres.iphone != null and addres.iphone != ''">
                 iphone = #{addres.iphone},
             </if>
-        </set> where id =
-        #{addres.id} </update>
+        </set>
+        where id =
+        #{addres.id}
+    </update>
 
 
     <!--对应addAddress()方法,用于在注册成功后将该地址的用户外键加入到数据库中-->

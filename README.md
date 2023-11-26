@@ -150,7 +150,7 @@ Ascent
 **4.客户端和管理端访问**
 
 客户端地址:  `http://localhost:8888/Ascent/user/` 
-![](assets/屏幕截图-2023-11-26-212850.png)
+![](assets/网页捕获_26-11-2023_22854_localhost.jpeg)
 
 <br>管理端地址:  `http://localhost:8888/Ascent/admin/`
 

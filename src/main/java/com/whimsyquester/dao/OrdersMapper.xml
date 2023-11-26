@@ -25,8 +25,8 @@
     <select id="FenyeList" parameterType="java.lang.Integer" resultType="GoodsOrders">
         SELECT *
         FROM orders
-        WHERE order_userid = #{order_userid} LIMIT #{page}
-        , 3
+        WHERE order_userid = #{order_userid}
+        LIMIT #{page} , 3
     </select>
 
 
@@ -35,7 +35,7 @@
         DELETE
         FROM orders
         WHERE id =
-        #{id}
+              #{id}
     </delete>
 
 
@@ -50,12 +50,12 @@
     <!--对应addOrdersMappers()方法,用于向订单表中添加一条新的订单记录-->
     <insert id="addOrdersMappers" parameterType="GoodsOrders">
         insert into `orders` (`order_userid`,
-        `address`, `pay_type`, `goods_name`, `goods_num`, `goods_price`, `order_date`,
-        `order_succ`,
-        `order_counts`, `order_code`, `order_state`)
+                              `address`, `pay_type`, `goods_name`, `goods_num`, `goods_price`, `order_date`,
+                              `order_succ`,
+                              `order_counts`, `order_code`, `order_state`)
         values (#{order_userid}, #{address},
-        #{pay_type}, #{goods_name}, #{goods_num}, #{goods_price}, #{order_date}, #{order_succ},
-        #{order_counts}, #{order_code}, #{order_state});
+                #{pay_type}, #{goods_name}, #{goods_num}, #{goods_price}, #{order_date}, #{order_succ},
+                #{order_counts}, #{order_code}, #{order_state});
     </insert>
 
 
@@ -79,7 +79,7 @@
     <update id="adminFahuoOrders" parameterType="java.lang.Integer">
         UPDATE orders
         SET order_state =
-        '查物流'
+                '查物流'
         WHERE id = #{id}
     </update>
 

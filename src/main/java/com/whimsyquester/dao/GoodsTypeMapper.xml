@@ -13,14 +13,14 @@
 
     <!--将查询结果集中的列与GoodsTypeCustom类和Goods类中的属性进行映射,方便后续的数据处理-->
     <resultMap type="com.whimsyquester.po.GoodsTypeCustom" id="goodslist">
-        <id column="id" property="id" />
-        <result column="type_name" property="type_name" />
-        <result column="date" property="date" />
+        <id column="id" property="id"/>
+        <result column="type_name" property="type_name"/>
+        <result column="date" property="date"/>
         <collection property="lists" ofType="com.whimsyquester.po.Goods">
-            <id column="gid" property="id" />
-            <result column="goods_name" property="goods_name" />
-            <result column="goods_img" property="goods_img" />
-            <result column="goods_price" property="goods_price" />
+            <id column="gid" property="id"/>
+            <result column="goods_name" property="goods_name"/>
+            <result column="goods_img" property="goods_img"/>
+            <result column="goods_price" property="goods_price"/>
         </collection>
     </resultMap>
 
@@ -30,13 +30,13 @@
             方便后续数据处理-->
     <select id="goodsIndex" resultMap="goodslist">
         SELECT t.*,
-        g.`goods_name`,
-        g.`goods_img`,
-        g.`goods_price`,
-        g.`id` gid
+               g.`goods_name`,
+               g.`goods_img`,
+               g.`goods_price`,
+               g.`id` gid
         FROM shop_type t
-        LEFT JOIN shop_goods g ON t.`id` =
-        g.`goods_type`
+                 LEFT JOIN shop_goods g ON t.`id` =
+                                           g.`goods_type`
     </select>
 
 
@@ -45,7 +45,7 @@
         DELETE
         FROM shop_type
         WHERE id =
-        #{id}
+              #{id}
     </delete>
 
 
