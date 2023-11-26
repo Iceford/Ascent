@@ -140,18 +140,18 @@ Ascent
 
 **2.在 [db.properties](src\main\resources\db.properties) 文件设置数据库连接的账号和密码**
 
-![](assets\屏幕截图-2023-11-26-212106.png)
+![](assets/屏幕截图-2023-11-26-212106.png)
 
 
 **3.运行批处理脚本文件 [start.bat](start.bat) ,项目开始运行**
 
-![](assets\屏幕截图-2023-11-26-212428.png)
+![](assets/屏幕截图-2023-11-26-212428.png)
 
 **4.客户端和管理端访问**
 
 客户端地址:  `http://localhost:8888/Ascent/user/` 
-![](assets\屏幕截图-2023-11-26-212850.png)
+![](assets/屏幕截图-2023-11-26-212850.png)
 
 <br>管理端地址:  `http://localhost:8888/Ascent/admin/`
 
-![](assets\屏幕截图-2023-11-26-212936.png)
+![](assets/屏幕截图-2023-11-26-212936.png)
