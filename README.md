@@ -7,7 +7,7 @@ Ascent 医药系统是一个综合性的医药商城，包含用户端和管理�
 ## 二、功能设计
 Ascent 医药系统主要包含买家访问的客户端和管理员访问的管理端，具体功能如下
 
-<div style="display: inline-block; width: 40%;">
+<div style="display: inline-block; width: 30%;">
 
 ### 客户端功能
 
@@ -35,7 +35,7 @@ Ascent 医药系统主要包含买家访问的客户端和管理员访问的管�
 #### 订单
 - [x] 删除订单
 </div>
-<div style="display: inline-block; width: 40%;">
+<div style="display: inline-block; width: 30%;">
 
 ### 管理端功能
 
