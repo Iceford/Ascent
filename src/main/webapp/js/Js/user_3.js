@@ -3,7 +3,7 @@ $(function () {
 
 	function dai() {
 		$.ajax({
-			url: "/Shop-SSM/AdminGtByorderId.do",
+			url: "/Ascent/AdminGtByorderId.do",
 			type: "post",
 			data: {
 				"id": GetQueryString("id")
@@ -50,7 +50,7 @@ $(function () {
 				btn: ['确定', '取消'],
 				yes: function (index, layero) {
 					$.ajax({
-						url: "/Shop-SSM/adminDaiDels.do",
+						url: "/Ascent/adminDaiDels.do",
 						type: "post",
 						data: {
 							"id": ids,

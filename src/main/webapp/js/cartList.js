@@ -1,17 +1,17 @@
 /*
  * @Description: 
  * @FilePath: \src\main\webapp\js\cartList.js
- * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Author: whimsyquester rongquanhuang01@gmail.com
  * @Date: 2023-06-05 11:32:03
- * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditors: whimsyquester rongquanhuang01@gmail.com
  * @LastEditTime: 2023-06-08 00:06:07
- * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+ * Copyright (c) 2023 by whimsyquester , All Rights Reserved. 
  */
 $(function () {
 	var str = "";
 	var cc = 0;
 	$.ajax({
-		url: "/Shop-SSM/getUserIdC.do",
+		url: "/Ascent/getUserIdC.do",
 		type: "post",
 		data: {
 			"id": eval("(" + $.cookie('shop-users') + ")")['id']
@@ -38,7 +38,7 @@ $(function () {
 			str += "<ul class='cart_list_td clearfix'>"
 			str += "<li class='col01'><input type='checkbox' value='" + arry[i]["id"] + "'></li>"
 			str += "<li class='col02'><img src='../images/goods003.jpg'></li>"
-			str += "<li class='col03'>" + arry[i]["goods_name"] + "<br><em>" + arry[i]["goods_price"] + "/" + arry[i]["goods_unit"] + "</em></li>"
+			str += "<li class='col03'>" + arry[i]["goods_name"] + "<br><em>" + arry[i]["goods_unit"] + "</em></li>"
 			str += "<li class='col04'>" + arry[i]["goods_unit"] + "</li>"
 			str += "<li class='col05'>" + arry[i]["goods_price"] + "元</li>"
 			str += "<li class='col06'>" + arry[i]["goods_num"] + "</li>"
@@ -59,7 +59,7 @@ $(function () {
 				btn: ['确定', '取消'],
 				yes: function (index, layero) {
 					$.ajax({
-						url: "/Shop-SSM/delByid.do",
+						url: "/Ascent/delByid.do",
 						type: "post",
 						data: {
 							"id": ids,
@@ -127,7 +127,7 @@ $(function () {
 				btn: ['确定', '取消'],
 				yes: function (index, layero) {
 					$.ajax({
-						url: "/Shop-SSM/delByIdsA.do",
+						url: "/Ascent/delByIdsA.do",
 						type: "post",
 						data: {
 							"ids": arr

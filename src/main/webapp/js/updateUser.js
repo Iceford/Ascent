@@ -1,11 +1,11 @@
 /*
  * @Description: 
  * @FilePath: \src\main\webapp\js\updateUser.js
- * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Author: whimsyquester rongquanhuang01@gmail.com
  * @Date: 2023-06-05 11:32:04
- * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditors: whimsyquester rongquanhuang01@gmail.com
  * @LastEditTime: 2023-06-08 00:08:50
- * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+ * Copyright (c) 2023 by whimsyquester , All Rights Reserved. 
  */
 $(function () {
 
@@ -101,7 +101,7 @@ $(function () {
 			layer.msg('请填写密码或账号!', { icon: 5, time: 1500 });
 		} else {
 			$.ajax({
-				url: "/Shop-SSM/updatePwds.do",
+				url: "/Ascent/updatePwds.do",
 				type: "post",
 				data: {
 					"id": eval("(" + $.cookie('shop-users') + ")")['id'],

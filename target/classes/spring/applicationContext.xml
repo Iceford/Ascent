@@ -2,11 +2,11 @@
 <!--
  * @Description: Spring MVC的配置文件,用于配置Spring MVC框架的一些参数和属性
  * @FilePath: \src\main\resources\spring\applicationContext.xml
- * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Author: whimsyquester rongquanhuang01@gmail.com
  * @Date: 2023-06-05 11:32:03
- * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditors: whimsyquester rongquanhuang01@gmail.com
  * @LastEditTime: 2023-06-07 15:04:30
- * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+ * Copyright (c) 2023 by whimsyquester , All Rights Reserved. 
 -->
 
 
@@ -37,13 +37,13 @@
 
 	<!-- 用于指定需要扫描的包路径,以便自动扫描并注册Spring MVC的控制器 -->
 	<context:component-scan
-		base-package="com.ssm.controller"></context:component-scan>
+		base-package="com.whimsyquester.controller"></context:component-scan>
 
 	<!-- 开启Spring MVC的注解驱动功能,可以简化代码,提高开发效率 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
 
 	<!-- 用于配置静态资源的访问路径和映射关系,location属性指定了静态资源的存放路径,mapping属性指定了访问该静态资源的URL路径 -->
-	<mvc:resources location="/shop-user/" mapping="/shop-user/*.html" />
+	<mvc:resources location="/user/" mapping="/user/*.html" />
 	<mvc:resources location="/admin/" mapping="/admin/*.html" />
 	<mvc:resources location="/admin/" mapping="/admin/**" />
 	<mvc:resources location="/js/" mapping="/js/**" />
@@ -56,15 +56,15 @@
 	<mvc:interceptors>
 		<!--使用mvc:interceptor标签定义了一个拦截器,并使用mvc:mapping标签指定了需要拦截的请求路径-->
 		<mvc:interceptor>
-			<mvc:mapping path="/shop-user/*.html" />
-			<mvc:exclude-mapping path="/shop-user/index.html" />
+			<mvc:mapping path="/user/*.html" />
+			<mvc:exclude-mapping path="/user/index.html" />
 			<mvc:exclude-mapping path="/getGoods.do" />
-			<mvc:exclude-mapping path="/shop-user/login.html" />
+			<mvc:exclude-mapping path="/user/login.html" />
 			<mvc:exclude-mapping path="/login.do" />
-			<mvc:exclude-mapping path="/shop-user/register.html" />
+			<mvc:exclude-mapping path="/user/register.html" />
 			<mvc:exclude-mapping path="/addPlainUsers.do" />
 			<!-- 指定拦截器的具体实现类 -->
-			<bean class="com.ssm.interceptors.InterceptorCustom"></bean>
+			<bean class="com.whimsyquester.interceptors.InterceptorCustom"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 
@@ -84,3 +84,4 @@
 
 
 </beans>
+

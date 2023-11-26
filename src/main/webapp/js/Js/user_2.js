@@ -3,7 +3,7 @@ $(function () {
 
 	function getUsers() {
 		$.ajax({
-			url: "/Shop-SSM/adminOneByManyOrder.do",
+			url: "/Ascent/adminOneByManyOrder.do",
 			type: "get",
 			dataType: "json",
 			success: function (m) {

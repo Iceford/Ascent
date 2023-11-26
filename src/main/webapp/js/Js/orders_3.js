@@ -3,7 +3,7 @@ $(function () {
 
 	function dai() {
 		$.ajax({
-			url: "/Shop-SSM/adminlogisticsOrdes.do",
+			url: "/Ascent/adminlogisticsOrdes.do",
 			type: "post",
 			data: {
 				"status": "未发货"
@@ -31,7 +31,7 @@ $(function () {
 			str += "<td>" + arry[i]["order_counts"] + "/元</td>"
 			str += "<td>" + arry[i]["order_code"] + "</td>"
 			str += "<td><a class='cha_' rel='" + arry[i]["order_userid"] + "' href='javascript:;'>查看</a></td>"
-			str += "<td><a class='del' rel='" + arry[i]["id"] + "' href='javascript:;'>删除</a>&nbsp;&nbsp;&nbsp;<a href='/Shop-SSM/adminfahuoOrdes.do?id=" + arry[i]["id"] + "'>发货</a></td>"
+			str += "<td><a class='del' rel='" + arry[i]["id"] + "' href='javascript:;'>删除</a>&nbsp;&nbsp;&nbsp;<a href='/Ascent/adminfahuoOrdes.do?id=" + arry[i]["id"] + "'>发货</a></td>"
 			str += "</tr>"
 		}
 
@@ -42,7 +42,7 @@ $(function () {
 		$(".cha_").click(function () {
 			var ids = $(this).attr("rel");
 			$.ajax({
-				url: "/Shop-SSM//adminByidGetUser.do",
+				url: "/Ascent//adminByidGetUser.do",
 				type: "post",
 				data: {
 					"id": ids
@@ -68,7 +68,7 @@ $(function () {
 				btn: ['确定', '取消'],
 				yes: function (index, layero) {
 					$.ajax({
-						url: "/Shop-SSM/adminDaiDels.do",
+						url: "/Ascent/adminDaiDels.do",
 						type: "post",
 						data: {
 							"id": ids,

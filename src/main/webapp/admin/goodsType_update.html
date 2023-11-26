@@ -1,11 +1,11 @@
 <!--
  * @Description: 转移商品类别页面
  * @FilePath: \src\main\webapp\admin\goodsType_update.html
- * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Author: whimsyquester rongquanhuang01@gmail.com
  * @Date: 2023-06-05 11:32:03
- * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditors: whimsyquester rongquanhuang01@gmail.com
  * @LastEditTime: 2023-06-07 23:41:36
- * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+ * Copyright (c) 2023 by whimsyquester , All Rights Reserved. 
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
@@ -148,13 +148,13 @@
                 alert("请选择所属分类！")
                 return false;
             } else {
-                $('#forms').attr("action", "/Shop-SSM/adminGoodsBytype.do?id=" + GetQueryString("id") + "&goods_type=" + $('#goType').val())
+                $('#forms').attr("action", "/Ascent/adminGoodsBytype.do?id=" + GetQueryString("id") + "&goods_type=" + $('#goType').val())
                 return true;
             }
         }
 
         $.ajax({
-            url: "/Shop-SSM/AdminGetType.do",
+            url: "/Ascent/AdminGetType.do",
             type: "post",
             data: {
                 "id": GetQueryString("goods_type")
@@ -168,7 +168,7 @@
 
         var str = ""
         $.ajax({
-            url: "/Shop-SSM/getGoods.do",
+            url: "/Ascent/getGoods.do",
             type: "get",
             dataType: "json",
             success: function (m) {

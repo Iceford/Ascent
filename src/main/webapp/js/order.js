@@ -1,17 +1,17 @@
 /*
  * @Description: 
  * @FilePath: \src\main\webapp\js\order.js
- * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Author: whimsyquester rongquanhuang01@gmail.com
  * @Date: 2023-06-05 11:32:03
- * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditors: whimsyquester rongquanhuang01@gmail.com
  * @LastEditTime: 2023-06-05 16:28:39
- * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+ * Copyright (c) 2023 by whimsyquester , All Rights Reserved. 
  */
 $(function () {
 	var str = ""
 	var count = 0
 	$.ajax({
-		url: "/Shop-SSM/getCounts.do",
+		url: "/Ascent/getCounts.do",
 		type: "post",
 		data: {
 			"num": eval("(" + $.cookie('shop-users') + ")")['id']
@@ -27,7 +27,7 @@ $(function () {
 
 	function get_orders(pages) {
 		$.ajax({
-			url: "/Shop-SSM/FenyeLists.do",
+			url: "/Ascent/FenyeLists.do",
 			type: "post",
 			data: {
 				"page": pages,
@@ -108,7 +108,7 @@ $(function () {
 				btn: ['确定', '取消'],
 				yes: function (index, layero) {
 					$.ajax({
-						url: "/Shop-SSM/delByOrderId.do",
+						url: "/Ascent/delByOrderId.do",
 						type: "post",
 						data: {
 							"id": ids,
@@ -147,7 +147,7 @@ $(function () {
 				btn: ['确定', '取消'],
 				yes: function (index, layero) {
 					$.ajax({
-						url: "/Shop-SSM/pay_order.do",
+						url: "/Ascent/pay_order.do",
 						type: "post",
 						data: {
 							"id": ids,

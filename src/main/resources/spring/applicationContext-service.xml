@@ -2,11 +2,11 @@
 <!--
  * @Description: Spring配置文件,定义一些bean,这些bean是应用程序中的服务层组件
  * @FilePath: \src\main\resources\spring\applicationContext-service.xml
- * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Author: whimsyquester rongquanhuang01@gmail.com
  * @Date: 2023-06-05 11:32:03
- * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditors: whimsyquester rongquanhuang01@gmail.com
  * @LastEditTime: 2023-06-07 14:47:28
- * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+ * Copyright (c) 2023 by whimsyquester , All Rights Reserved. 
 -->
 
 <!-- 
@@ -35,23 +35,23 @@
 						http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 
 	<!--用户服务-->
-	<bean id="userServiceImpl" class="com.ssm.service.impl.UserServiceImpl" />
+	<bean id="userServiceImpl" class="com.whimsyquester.service.impl.UserServiceImpl" />
 	<!--商品类型-->
-	<bean id="typeServiceImpl" class="com.ssm.service.impl.TypeServiceImpl"></bean>
+	<bean id="typeServiceImpl" class="com.whimsyquester.service.impl.TypeServiceImpl"></bean>
 	<!--收货地址-->
-	<bean id="receAddressImppl" class="com.ssm.service.impl.ReceAddressImppl"></bean>
+	<bean id="receAddressImppl" class="com.whimsyquester.service.impl.ReceAddressImppl"></bean>
 	<!--商品详情-->
-	<bean id="goodsServiceImpl" class="com.ssm.service.impl.GoodsServiceImpl"></bean>
+	<bean id="goodsServiceImpl" class="com.whimsyquester.service.impl.GoodsServiceImpl"></bean>
 	<!--购物车-->
-	<bean id="cartServiceImpl" class="com.ssm.service.impl.CartServiceImpl"></bean>
+	<bean id="cartServiceImpl" class="com.whimsyquester.service.impl.CartServiceImpl"></bean>
 	<!--订单-->
-	<bean id="ordersServiceImpl" class="com.ssm.service.impl.OrdersServiceImpl"></bean>
+	<bean id="ordersServiceImpl" class="com.whimsyquester.service.impl.OrdersServiceImpl"></bean>
 
 
 	<!--后台管理员-->
-	<bean id="adminUserServiceImpl" class="com.ssm.service.impl.admin.AdminUserServiceImpl"></bean>
+	<bean id="adminUserServiceImpl" class="com.whimsyquester.service.impl.admin.AdminUserServiceImpl"></bean>
 
 	<!--后台管理员权限-->
-	<bean id="shiroServiceImpl" class="com.ssm.service.impl.ShiroServiceImpl"></bean>
+	<bean id="shiroServiceImpl" class="com.whimsyquester.service.impl.ShiroServiceImpl"></bean>
 
 </beans>

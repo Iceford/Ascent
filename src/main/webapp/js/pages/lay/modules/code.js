@@ -1,11 +1,11 @@
 /*
  * @Description: 
  * @FilePath: \src\main\webapp\js\pages\lay\modules\code.js
- * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Author: whimsyquester rongquanhuang01@gmail.com
  * @Date: 2023-06-05 11:32:03
- * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditors: whimsyquester rongquanhuang01@gmail.com
  * @LastEditTime: 2023-06-05 16:19:22
- * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+ * Copyright (c) 2023 by whimsyquester , All Rights Reserved. 
  */
 /** layui-v2.5.5 MIT License By https://www.layui.com */
 layui

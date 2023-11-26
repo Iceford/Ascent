@@ -3,7 +3,7 @@ $(function () {
 
 	function dai() {
 		$.ajax({
-			url: "/Shop-SSM/adminDaiPays.do",
+			url: "/Ascent/adminDaiPays.do",
 			type: "post",
 			data: {
 				"status": 1
@@ -43,7 +43,7 @@ $(function () {
 		$(".cha_").click(function () {
 			var ids = $(this).attr("rel");
 			$.ajax({
-				url: "/Shop-SSM//adminByidGetUser.do",
+				url: "/Ascent//adminByidGetUser.do",
 				type: "post",
 				data: {
 					"id": ids
@@ -69,7 +69,7 @@ $(function () {
 				btn: ['确定', '取消'],
 				yes: function (index, layero) {
 					$.ajax({
-						url: "/Shop-SSM/adminDaiDels.do",
+						url: "/Ascent/adminDaiDels.do",
 						type: "post",
 						data: {
 							"id": ids,

@@ -4,7 +4,7 @@ $(function () {
 	var counts = 0
 
 	$.ajax({
-		url: "/Shop-SSM/AdminGetCounts.do",
+		url: "/Ascent/AdminGetCounts.do",
 		type: "get",
 		dataType: "json",
 		success: function (m) {
@@ -19,7 +19,7 @@ $(function () {
 
 	function goodsPage(n) {
 		$.ajax({
-			url: "/Shop-SSM/adminListPage.do",
+			url: "/Ascent/adminListPage.do",
 			type: "post",
 			data: {
 				"num": n
@@ -88,7 +88,7 @@ $(function () {
 				btn: ['确定', '取消'],
 				yes: function (index, layero) {
 					$.ajax({
-						url: "/Shop-SSM/adminDelgoods.do",
+						url: "/Ascent/adminDelgoods.do",
 						type: "post",
 						data: {
 							"id": ids,
@@ -156,7 +156,7 @@ $(function () {
 				btn: ['确定', '取消'],
 				yes: function (index, layero) {
 					$.ajax({
-						url: "/Shop-SSM/admindelsGood.do",
+						url: "/Ascent/admindelsGood.do",
 						type: "post",
 						data: {
 							"ids": num,

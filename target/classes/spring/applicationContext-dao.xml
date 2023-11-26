@@ -2,11 +2,11 @@
 <!--
 * @Description: Spring配置文件,定义一些在应用程序中使用的bean
 * @FilePath: \src\main\resources\spring\applicationContext-dao.xml
-* @Author: hhrwvyy5654v huang_rongquan@outlook.com
+* @Author: whimsyquester rongquanhuang01@gmail.com
 * @Date: 2023-06-05 11:32:03
-* @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+* @LastEditors: whimsyquester rongquanhuang01@gmail.com
 * @LastEditTime: 2023-06-07 11:55:28
-* Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved.
+* Copyright (c) 2023 by whimsyquester , All Rights Reserved.
 -->
 
 <!-- 
@@ -71,8 +71,8 @@
 	同时,它还可以自动为Mapper接口生成代理对象,使我们可以像调用普通Java接口一样调用Mapper接口中的方法。
 	-->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<!-- 指定要扫描的Mapper接口所在的包名为com.ssm.dao -->
-		<property name="basePackage" value="com.ssm.dao" />
+		<!-- 指定要扫描的Mapper接口所在的包名为com.whimsyquester.dao -->
+		<property name="basePackage" value="com.whimsyquester.dao" />
 		<!-- 指定SqlSessionFactory的bean的名称 -->
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>

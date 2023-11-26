@@ -1,11 +1,11 @@
 <!--
  * @Description: 管理项目的依赖和构建配置
  * @FilePath: \pom.xml
- * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Author: whimsyquester rongquanhuang01@gmail.com
  * @Date: 2023-06-05 11:32:03
- * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditors: whimsyquester rongquanhuang01@gmail.com
  * @LastEditTime: 2023-06-07 15:33:11
- * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+ * Copyright (c) 2023 by whimsyquester , All Rights Reserved. 
 -->
 
 <!-- 定义POM文件的XML构和元素:
@@ -16,7 +16,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>	<!--指定POM模型的版本-->
-	<groupId>com.ssm</groupId>	<!--项目唯一标识符-->
+	<groupId>com.whimsyquester</groupId>	<!--项目唯一标识符-->
 	<artifactId>Ascent</artifactId>	<!--项目名称-->
 	<version>Web</version>	<!--项目版本-->
 	<packaging>war</packaging>	<!--打包方式-->
@@ -253,7 +253,7 @@
 				<!--插件的配置标签,用于指定插件的具体配置信息-->
 				<configuration>
 					<port>8888</port>	<!--指定Tomcat服务器的端口号-->
-					<path>/Shop-SSM</path>	<!--指定Tomcat服务器的路径-->
+					<path>/Ascent</path>	<!--指定Tomcat服务器的路径-->
 					<uriEncoding>UTF-8</uriEncoding>	<!--指定URI的编码方式为UTF-8-->
 				</configuration>
 			</plugin>
@@ -309,3 +309,4 @@
 	</build>
 
 </project>
+

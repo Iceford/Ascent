@@ -1,11 +1,11 @@
 /*
  * @Description: 
  * @FilePath: \src\main\webapp\js\Js\GoodsList_2.js
- * @Author: hhrwvyy5654v huang_rongquan@outlook.com
+ * @Author: whimsyquester rongquanhuang01@gmail.com
  * @Date: 2023-06-05 11:32:03
- * @LastEditors: hhrwvyy5654v huang_rongquan@outlook.com
+ * @LastEditors: whimsyquester rongquanhuang01@gmail.com
  * @LastEditTime: 2023-06-05 16:08:03
- * Copyright (c) 2023 by hhrwvyy5654v , All Rights Reserved. 
+ * Copyright (c) 2023 by whimsyquester , All Rights Reserved. 
  */
 $(function () {
 
@@ -13,7 +13,7 @@ $(function () {
 	var counts = 0
 
 	$.ajax({
-		url: "/Shop-SSM/AdminGetCounts.do",
+		url: "/Ascent/AdminGetCounts.do",
 		type: "get",
 		dataType: "json",
 		success: function (m) {
@@ -28,7 +28,7 @@ $(function () {
 
 	function goodsPage(n) {
 		$.ajax({
-			url: "/Shop-SSM/adminListPage.do",
+			url: "/Ascent/adminListPage.do",
 			type: "post",
 			data: {
 				"num": n
