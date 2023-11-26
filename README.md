@@ -135,7 +135,7 @@ Ascent
 ## 六、运行演示
 **1.打开项目，执行 [ascent.sql](src\main\resources\ascent.sql) 文件,创建项目所需数据库**
 
-![](assets\屏幕截图-2023-11-26-211550.png)
+![](assets/屏幕截图-2023-11-26-211550.png)
 
 
 **2.在 [db.properties](src\main\resources\db.properties) 文件设置数据库连接的账号和密码**
