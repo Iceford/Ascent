@@ -1,11 +1,11 @@
 # **<center>Ascent 医药系统</center>**
 
 ## 一、简介
-Ascent 医药系统是一个综合性的医药商城，包含用户端和管理平台。系统旨在高效、便捷地提供医药商务服务，满足用户和管理者的需求。用户端提供丰富的功能，方便用户浏览、查询商品，管理购物车和订单。管理平台则支持商品、订单、会员、地址等管理功能，以及系统设置和权限管理。通过先进的技术和功能模块的整合，Ascent 医药系统为医药行业带来更好的用户体验，提供强大的运营管理功能，助力行业发展。
+&emsp;Ascent 医药系统是一个综合性的医药商城，包含用户端和管理平台。系统旨在高效、便捷地提供医药商务服务，满足用户和管理者的需求。用户端提供丰富的功能，方便用户浏览、查询商品，管理购物车和订单。管理平台则支持商品、订单、会员、地址等管理功能，以及系统设置和权限管理。通过先进的技术和功能模块的整合，Ascent 医药系统为医药行业带来更好的用户体验，提供强大的运营管理功能，助力行业发展。
 
 
 ## 二、功能设计
-Ascent 医药系统主要包含买家访问的客户端和管理员访问的管理端，具体功能如下
+&emsp;Ascent 医药系统主要包含买家访问的客户端和管理员访问的管理端，具体功能如下
 
 <div style="display: inline-block; width: 30%;">
 
@@ -70,12 +70,12 @@ Ascent 医药系统主要包含买家访问的客户端和管理员访问的管�
 
 
 ## 四、技术选型
-后端框架: Spring + Spring MVC + MyBatis <br>
-前端框架: HTML + CSS + Juery + Layui <br>
-数据库: MySQL <br>
-日志框架: Log4j2 <br>
-项目管理工具: Maven <br>
-测试运行环境: Tomcat <br>
+后端框架:&emsp;Spring + Spring MVC + MyBatis <br>
+前端框架:&emsp;HTML + CSS + Juery + Layui <br>
+数据库:&emsp;MySQL <br>
+日志框架:&emsp;Log4j2 <br>
+项目管理工具:&emsp;Maven <br>
+测试运行环境:&emsp;Tomcat <br>
 
 
 ## 五、项目结构
@@ -149,9 +149,13 @@ Ascent
 
 **4.客户端和管理端访问**
 
-客户端地址:  `http://localhost:8888/Ascent/user/` 
+客户端地址:&emsp;[http://localhost:8888/Ascent/user/](http://localhost:8888/Ascent/user/) 
 ![](assets/网页捕获_26-11-2023_22854_localhost.jpeg)
 
-<br>管理端地址:  `http://localhost:8888/Ascent/admin/`
+<br>管理端地址:&emsp;[http://localhost:8888/Ascent/admin/](http://localhost:8888/Ascent/admin/)
 
 ![](assets/屏幕截图-2023-11-26-212936.png)
+
+## 7、Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=WhimsyQuester/Ascent&type=Date)](https://star-history.com/#WhimsyQuester/Ascent&Date)
