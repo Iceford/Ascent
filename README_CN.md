@@ -145,15 +145,13 @@ Ascent
 
 **3. Run the batch script file [start.bat](start.bat) and the project will start running**
 
-![](assets/屏幕截图-2023-11-26-212428.png)
-
 **4.Client and management access**
 
-Client address:&emsp;[http://localhost:8888/Ascent/user/](http://localhost:8888/Ascent/user/) 
+Client address:&emsp;[http://localhost:8888/Ascent/user/index.html](http://localhost:8888/Ascent/user/index.html) <br>
 
 ![](assets/网页捕获_26-11-2023_22854_localhost.jpeg)
 
-<br>Management address:&emsp;[http://localhost:8888/Ascent/admin/](http://localhost:8888/Ascent/admin/)
+<br>Management address:&emsp;[http://localhost:8888/Ascent/admin/login.html](http://localhost:8888/Ascent/admin/login.html)
 
 ![](assets/屏幕截图-2023-11-26-212936.png)
 

@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [09/Mar/2024:23:24:37 +0800] "GET /Ascent/user/index.html HTTP/1.1" 304 - http-bio-8888-exec-1 1185
+0:0:0:0:0:0:0:1 - - [09/Mar/2024:23:24:37 +0800] "GET /Ascent/admin/ HTTP/1.1" 304 - http-bio-8888-exec-2 1185
+0:0:0:0:0:0:0:1 - - [09/Mar/2024:23:24:37 +0800] "GET /Ascent/getGoods.do HTTP/1.1" 200 5383 http-bio-8888-exec-4 681
+0:0:0:0:0:0:0:1 - - [09/Mar/2024:23:24:42 +0800] "GET /Ascent/admin/LoginOut.do HTTP/1.1" 302 - http-bio-8888-exec-6 19
+0:0:0:0:0:0:0:1 - - [09/Mar/2024:23:24:43 +0800] "GET /Ascent/images/login_content_bg.gif HTTP/1.1" 404 949 http-bio-8888-exec-7 12
+0:0:0:0:0:0:0:1 - - [09/Mar/2024:23:27:23 +0800] "GET /Ascent/user/index.html HTTP/1.1" 304 - http-bio-8888-exec-9 6
+0:0:0:0:0:0:0:1 - - [09/Mar/2024:23:27:23 +0800] "GET /Ascent/getGoods.do HTTP/1.1" 200 5383 http-bio-8888-exec-9 14

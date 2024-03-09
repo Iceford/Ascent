@@ -149,11 +149,11 @@ Ascent
 
 **4.客户端和管理端访问**
 
-客户端地址:&emsp;[http://localhost:8888/Ascent/user/](http://localhost:8888/Ascent/user/) <br>
+客户端地址:&emsp;[http://localhost:8888/Ascent/user/index.html](http://localhost:8888/Ascent/user/index.html) <br>
 
 ![](assets/网页捕获_26-11-2023_22854_localhost.jpeg)
 
-<br>管理端地址:&emsp;[http://localhost:8888/Ascent/admin/](http://localhost:8888/Ascent/admin/)
+<br>管理端地址:&emsp;[http://localhost:8888/Ascent/admin/login.html](http://localhost:8888/Ascent/admin/login.html)
 
 ![](assets/屏幕截图-2023-11-26-212936.png)
 
